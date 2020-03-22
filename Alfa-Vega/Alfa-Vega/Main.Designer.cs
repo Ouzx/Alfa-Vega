@@ -30,15 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.panelBase = new System.Windows.Forms.Panel();
+            this.btnSettings = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panelBase = new System.Windows.Forms.Panel();
             this.panelUpper = new System.Windows.Forms.Panel();
             this.buttonUser = new System.Windows.Forms.Button();
             this.buttonClock = new System.Windows.Forms.Button();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
-            this.panelBase.SuspendLayout();
+            this.panelLogo.SuspendLayout();
             this.panelUpper.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,6 +49,7 @@
             this.panelMenu.BackColor = System.Drawing.Color.Transparent;
             this.panelMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelMenu.Controls.Add(this.panelBase);
+            this.panelMenu.Controls.Add(this.btnSettings);
             this.panelMenu.Controls.Add(this.panelLogo);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
@@ -55,26 +57,52 @@
             this.panelMenu.Size = new System.Drawing.Size(200, 561);
             this.panelMenu.TabIndex = 0;
             // 
-            // panelBase
+            // btnSettings
             // 
-            this.panelBase.AutoScroll = true;
-            this.panelBase.Controls.Add(this.button1);
-            this.panelBase.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelBase.Location = new System.Drawing.Point(0, 106);
-            this.panelBase.Name = "panelBase";
-            this.panelBase.Size = new System.Drawing.Size(200, 455);
-            this.panelBase.TabIndex = 5;
+            this.btnSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnSettings.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnSettings.FlatAppearance.BorderSize = 0;
+            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSettings.Image = global::Alfa_Vega.Properties.Resources.icons8_settings;
+            this.btnSettings.Location = new System.Drawing.Point(0, 517);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(200, 44);
+            this.btnSettings.TabIndex = 1;
+            this.btnSettings.Text = "Ayarlar";
+            this.btnSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // panelLogo
             // 
             this.panelLogo.BackgroundImage = global::Alfa_Vega.Properties.Resources.Banner;
             this.panelLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panelLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelLogo.Controls.Add(this.button1);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
             this.panelLogo.Size = new System.Drawing.Size(200, 106);
             this.panelLogo.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(118, 76);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panelBase
+            // 
+            this.panelBase.AutoScroll = true;
+            this.panelBase.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelBase.Location = new System.Drawing.Point(0, 106);
+            this.panelBase.Name = "panelBase";
+            this.panelBase.Size = new System.Drawing.Size(200, 411);
+            this.panelBase.TabIndex = 5;
             // 
             // panelUpper
             // 
@@ -131,16 +159,6 @@
             this.panelMain.Size = new System.Drawing.Size(978, 513);
             this.panelMain.TabIndex = 2;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(62, 40);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -161,7 +179,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alfa-VEGA Modular SCADA Systems v1";
             this.panelMenu.ResumeLayout(false);
-            this.panelBase.ResumeLayout(false);
+            this.panelLogo.ResumeLayout(false);
             this.panelUpper.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -177,5 +195,6 @@
         private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.Panel panelBase;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSettings;
     }
 }

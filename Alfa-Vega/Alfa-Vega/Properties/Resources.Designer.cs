@@ -163,6 +163,36 @@ namespace Alfa_Vega.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_add_2 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_add_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_checkmark {
+            get {
+                object obj = ResourceManager.GetObject("icons8_checkmark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_checkmark_48px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_checkmark_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_clock {
             get {
                 object obj = ResourceManager.GetObject("icons8_clock", resourceCulture);
@@ -176,6 +206,16 @@ namespace Alfa_Vega.Properties {
         internal static System.Drawing.Bitmap icons8_cnc_machine_1 {
             get {
                 object obj = ResourceManager.GetObject("icons8_cnc_machine_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_cnc_machine_64px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_cnc_machine_64px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -203,9 +243,29 @@ namespace Alfa_Vega.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_edit_1 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_edit_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_factory {
             get {
                 object obj = ResourceManager.GetObject("icons8_factory", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_factory_50px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_factory_50px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -236,6 +296,16 @@ namespace Alfa_Vega.Properties {
         internal static System.Drawing.Bitmap icons8_module_1 {
             get {
                 object obj = ResourceManager.GetObject("icons8_module_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_module_100px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_module_100px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -303,9 +373,39 @@ namespace Alfa_Vega.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_place_marker_64px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_place_marker_64px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_qr_code {
+            get {
+                object obj = ResourceManager.GetObject("icons8_qr_code", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_server {
             get {
                 object obj = ResourceManager.GetObject("icons8_server", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_settings {
+            get {
+                object obj = ResourceManager.GetObject("icons8_settings", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -336,6 +436,16 @@ namespace Alfa_Vega.Properties {
         internal static System.Drawing.Bitmap icons8_user {
             get {
                 object obj = ResourceManager.GetObject("icons8_user", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_vegas_96px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_vegas_96px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
