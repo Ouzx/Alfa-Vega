@@ -149,6 +149,18 @@ namespace Alfa_Vega
 
         private void button1_Click(object sender, EventArgs e)
         {
+            INFO _form = new INFO();
+            _form.TopLevel = false;
+            _form.FormBorderStyle = FormBorderStyle.None;
+            _form.StartPosition = FormStartPosition.Manual;
+            _form.Dock = DockStyle.None;
+            panelMain.Controls.Add(_form);
+            panelMain.Tag = _form;
+            _form.Anchor = AnchorStyles.Right;
+            _form.Anchor = AnchorStyles.Left;
+            _form.Anchor = AnchorStyles.Top;
+            _form.BringToFront();
+            _form.Show();
             /*
             GroupBox gp;
             gp = AddGroupBox();
