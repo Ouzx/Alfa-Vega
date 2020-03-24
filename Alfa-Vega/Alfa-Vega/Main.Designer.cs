@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.panelBase = new System.Windows.Forms.Panel();
             this.btnSettings = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.panelBase = new System.Windows.Forms.Panel();
             this.panelUpper = new System.Windows.Forms.Panel();
             this.buttonUser = new System.Windows.Forms.Button();
             this.buttonClock = new System.Windows.Forms.Button();
@@ -56,6 +56,15 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(200, 561);
             this.panelMenu.TabIndex = 0;
+            // 
+            // panelBase
+            // 
+            this.panelBase.AutoScroll = true;
+            this.panelBase.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelBase.Location = new System.Drawing.Point(0, 106);
+            this.panelBase.Name = "panelBase";
+            this.panelBase.Size = new System.Drawing.Size(200, 411);
+            this.panelBase.TabIndex = 5;
             // 
             // btnSettings
             // 
@@ -94,15 +103,6 @@
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // panelBase
-            // 
-            this.panelBase.AutoScroll = true;
-            this.panelBase.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelBase.Location = new System.Drawing.Point(0, 106);
-            this.panelBase.Name = "panelBase";
-            this.panelBase.Size = new System.Drawing.Size(200, 411);
-            this.panelBase.TabIndex = 5;
             // 
             // panelUpper
             // 
@@ -151,6 +151,8 @@
             // 
             // panelMain
             // 
+            this.panelMain.AutoScroll = true;
+            this.panelMain.AutoScrollMargin = new System.Drawing.Size(20, 0);
             this.panelMain.BackColor = System.Drawing.Color.Transparent;
             this.panelMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;

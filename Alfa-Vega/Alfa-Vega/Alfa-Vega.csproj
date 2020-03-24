@@ -45,6 +45,7 @@
     <Reference Include="Control.Draggable, Version=1.0.5049.269, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Control.Draggable.1.0.5049.269\lib\net35-Client\Control.Draggable.dll</HintPath>
     </Reference>
+    <Reference Include="MySql.Data, Version=8.0.19.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
@@ -61,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DB.cs" />
     <Compile Include="INFO.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +95,7 @@
     <Compile Include="Splash.Designer.cs">
       <DependentUpon>Splash.cs</DependentUpon>
     </Compile>
+    <Compile Include="VegaSystem.cs" />
     <EmbeddedResource Include="INFO.resx">
       <DependentUpon>INFO.cs</DependentUpon>
     </EmbeddedResource>
@@ -251,6 +254,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8_settings.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_package_52px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_delete.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

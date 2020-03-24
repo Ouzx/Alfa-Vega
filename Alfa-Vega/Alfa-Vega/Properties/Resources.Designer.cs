@@ -223,6 +223,16 @@ namespace Alfa_Vega.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_delete {
+            get {
+                object obj = ResourceManager.GetObject("icons8_delete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_delete_24px {
             get {
                 object obj = ResourceManager.GetObject("icons8_delete_24px", resourceCulture);
@@ -346,6 +356,16 @@ namespace Alfa_Vega.Properties {
         internal static System.Drawing.Bitmap icons8_module1 {
             get {
                 object obj = ResourceManager.GetObject("icons8_module1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_package_52px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_package_52px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
