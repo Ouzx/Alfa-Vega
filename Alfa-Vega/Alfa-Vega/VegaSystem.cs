@@ -18,42 +18,69 @@ namespace Alfa_Vega
         /// </summary>
         public void Add(string _table, params object[] _data)
         {
-            StringBuilder cmd = new StringBuilder();
-            cmd.AppendFormat("INSERT INTO {0} VALUES({1}, ", _table,GetLastID(_table)+1);
-            for (int i = 0; i < _data.Length; i++)
+            try
             {
-                cmd.Append(_data[i].ToString() + ",");
+                StringBuilder cmd = new StringBuilder();
+                cmd.AppendFormat("INSERT INTO {0} VALUES({1}, ", _table, GetLastID(_table) + 1);
+                for (int i = 0; i < _data.Length; i++)
+                {
+                    cmd.Append(_data[i].ToString() + ",");
+                }
+                cmd.Remove(cmd.Length - 1, 1);
+                cmd.Append(")");
+                //MessageBox.Show(cmd.ToString());
+                Write(cmd.ToString());
+                MessageBox.Show("Ekleme işlemi başarlı!", "Bilgi!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            cmd.Remove(cmd.Length - 1, 1);
-            cmd.Append(")");
-            //MessageBox.Show(cmd.ToString());
-            Write(cmd.ToString());
-            MessageBox.Show("Ekleme işlemi başarlı!", "Bilgi!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lütfen Gerekli Alanları Doldurun ve İnternete Bağlı Olduğunuzdan emin olun! " + ex.ToString(),
+                                                    "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
         /// <summary>
         /// Veri tabanından veri çeker
         /// </summary>
         public List<string> Get(string _table, int _ID)
         {
-            return Read(_table,_ID);
+            try
+            {
+                return Read(_table, _ID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lütfen Gerekli Alanları Doldurun ve İnternete Bağlı Olduğunuzdan emin olun! " + ex.ToString(),
+                                                    "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
         }
+
         /// <summary>
         /// Veri tabanındaki bir veriyi düzenler
         /// </summary>
-        public void Set(string _table, string _name, params object[] _data)
-        {
-            Edit(_table, _name, _data);
-            MessageBox.Show("Düzenleme işlemi başarlı!", "Bilgi!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-        }
-        /// <summary>
-        /// Veri tabanındaki bir veriyi siler
-        /// </summary>
-        public void Delete(string _table, string _name)
+        public void Set(string _table, int _id, params object[] _data)
         {
             try
             {
-                Remove(_table, _name);
+                Edit(_table, _id, _data);
+                MessageBox.Show("Düzenleme işlemi başarlı!", "Bilgi!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lütfen Gerekli Alanları Doldurun ve İnternete Bağlı Olduğunuzdan emin olun! " + ex.ToString(),
+                                                    "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Veri tabanındaki bir veriyi siler
+        /// </summary>
+        public void Delete(string _table, int _id)
+        {
+            try
+            {
+                Remove(_table, _id);
                 MessageBox.Show("Silme işlemi başarlı!", "Bilgi!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
@@ -65,6 +92,7 @@ namespace Alfa_Vega
         }
 
     }
+
     /// <summary>
     /// Yan menüde kullanılacak butonları ayarlayan ana sınıf.
     /// Bir panel bir butondan oluşur.

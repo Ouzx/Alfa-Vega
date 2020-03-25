@@ -48,6 +48,8 @@ namespace Alfa_Vega
         }
 
 
+
+
         /// <summary>
         /// Veri tabanına veri ekler.
         /// </summary>
@@ -92,30 +94,11 @@ namespace Alfa_Vega
 
 
         /// <summary>
-        /// En son satırdaki id'yi döndürür.
-        /// </summary>
-        /// <param name="_table">İlgili tablo</param>
-        /// <returns></returns>
-        public int GetLastID(string _table)
-        {
-            int i = -1;
-            string s = "SELECT MAX(ID) FROM " + _table;
-            Connect();
-            using (MySqlDataReader reader = new MySqlCommand(s, connection).ExecuteReader())
-            {
-                if (reader.Read()) if (!reader.IsDBNull(0)) i = reader.GetInt32(0);
-            }
-            Disconnect();
-            return i;
-        }
-
-
-        /// <summary>
         /// İstenilen tablonun sütun isimlerini verir.
         /// </summary>
         /// <param name="tablename">Tablo ismi</param>
         /// <returns></returns>
-        public void Edit(string _tablename, string _name, params object[] _data)
+        public void Edit(string _tablename, int _id, params object[] _data)
         {
             Connect();
             DataTable schema = null;
@@ -137,12 +120,48 @@ namespace Alfa_Vega
                 s.Append(schema.Rows[i + 1]["ColumnName"] + "=" + _data[i] + ",");
             }
             s.Remove(s.Length - 1, 1);
-            s.Append(" WHERE NAME = " + _name);
+            s.Append(" WHERE ID = " + _id);
             cmd.CommandText = s.ToString();
             cmd.ExecuteNonQuery();
             Disconnect();
         }
 
+
+        /// <summary>
+        /// Adı verilen elemanı tablodan siler.
+        /// </summary>
+        /// <param name="_table"></param>
+        /// <param name="_name"></param>
+        public void Remove(string _table, int _id)
+        {
+            Connect();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            cmd.CommandText = "DELETE FROM " + _table + " WHERE ID = " + _id;
+            cmd.ExecuteNonQuery();
+            Disconnect();
+        }
+        
+
+
+
+        /// <summary>
+        /// En son satırdaki id'yi döndürür.
+        /// </summary>
+        /// <param name="_table">İlgili tablo</param>
+        /// <returns></returns>
+        public int GetLastID(string _table)
+        {
+            int i = -1;
+            string s = "SELECT MAX(ID) FROM " + _table;
+            Connect();
+            using (MySqlDataReader reader = new MySqlCommand(s, connection).ExecuteReader())
+            {
+                if (reader.Read()) if (!reader.IsDBNull(0)) i = reader.GetInt32(0);
+            }
+            Disconnect();
+            return i;
+        }
 
         /// <summary>
         /// İstenilen tablonun toplam sütun sayısını döndürür.
@@ -161,22 +180,6 @@ namespace Alfa_Vega
             Disconnect();
             return i;
         }
-
-        /// <summary>
-        /// Adı verilen elemanı tablodan siler.
-        /// </summary>
-        /// <param name="_table"></param>
-        /// <param name="_name"></param>
-        public void Remove(string _table, string _name)
-        {
-            Connect();
-            MySqlCommand cmd = new MySqlCommand();
-            cmd.Connection = connection;
-            cmd.CommandText = "DELETE FROM " + _table + " WHERE NAME = '" +_name+"'";
-            cmd.ExecuteNonQuery();
-            Disconnect();
-        }
-        
         public void GetClock()
         {
 
