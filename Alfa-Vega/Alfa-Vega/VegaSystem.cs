@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 using System.Windows.Forms;
 
 namespace Alfa_Vega
@@ -25,8 +26,9 @@ namespace Alfa_Vega
             }
             cmd.Remove(cmd.Length - 1, 1);
             cmd.Append(")");
-
+            //MessageBox.Show(cmd.ToString());
             Write(cmd.ToString());
+            MessageBox.Show("Ekleme işlemi başarlı!", "Bilgi!", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         /// <summary>
         /// Veri tabanından veri çeker
@@ -38,18 +40,30 @@ namespace Alfa_Vega
         /// <summary>
         /// Veri tabanındaki bir veriyi düzenler
         /// </summary>
-        public void Set(string _table, params object[] _data)
+        public void Set(string _table, string _name, params object[] _data)
         {
+            Edit(_table, _name, _data);
+            MessageBox.Show("Düzenleme işlemi başarlı!", "Bilgi!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
         /// <summary>
         /// Veri tabanındaki bir veriyi siler
         /// </summary>
-        public void Delete(string _table, int _ID)
+        public void Delete(string _table, string _name)
         {
+            try
+            {
+                Remove(_table, _name);
+                MessageBox.Show("Silme işlemi başarlı!", "Bilgi!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lütfen Gerekli Alanları Doldurun ve İnternete Bağlı Olduğunuzdan emin olun! " + ex.ToString(),
+                                                    "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-        
+
     }
     /// <summary>
     /// Yan menüde kullanılacak butonları ayarlayan ana sınıf.

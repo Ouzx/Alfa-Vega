@@ -328,10 +328,16 @@
             // cbName
             // 
             this.cbName.FormattingEnabled = true;
+            this.cbName.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "Bill Gates"});
             this.cbName.Location = new System.Drawing.Point(68, 42);
             this.cbName.Name = "cbName";
             this.cbName.Size = new System.Drawing.Size(107, 29);
             this.cbName.TabIndex = 14;
+            this.cbName.SelectedValueChanged += new System.EventHandler(this.cbName_SelectedValueChanged);
             // 
             // label7
             // 

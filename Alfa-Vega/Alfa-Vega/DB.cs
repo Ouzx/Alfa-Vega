@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 
@@ -37,6 +38,16 @@ namespace Alfa_Vega
             else return false;
         }
 
+
+        /// <summary>
+        /// Veri tabanı baplantısını koparır.
+        /// </summary>
+        public void Disconnect()
+        {
+            if (connection.State == System.Data.ConnectionState.Open) connection.Close();
+        }
+
+
         /// <summary>
         /// Veri tabanına veri ekler.
         /// </summary>
@@ -52,6 +63,7 @@ namespace Alfa_Vega
             Disconnect();
         }
 
+
         /// <summary>
         /// Veri tabanından id'si verilen bir satırı okur.
         /// </summary>
@@ -61,6 +73,7 @@ namespace Alfa_Vega
         public List<string> Read(string _table, int _id)
         {
             List<string> row = new List<string>();
+            row.Clear();
             string cmd = "SELECT * FROM " + _table + " WHERE ID = " + _id.ToString();
             int columns = GetColumnCount(_table);
             Connect();
@@ -72,17 +85,11 @@ namespace Alfa_Vega
                 }
             }
             Disconnect();
+            
             return row;
 
         }
 
-        /// <summary>
-        /// Veri tabanı baplantısını koparır.
-        /// </summary>
-        public void Disconnect()
-        {
-            if (connection.State == System.Data.ConnectionState.Open) connection.Close();
-        }
 
         /// <summary>
         /// En son satırdaki id'yi döndürür.
@@ -101,6 +108,42 @@ namespace Alfa_Vega
             Disconnect();
             return i;
         }
+
+
+        /// <summary>
+        /// İstenilen tablonun sütun isimlerini verir.
+        /// </summary>
+        /// <param name="tablename">Tablo ismi</param>
+        /// <returns></returns>
+        public void Edit(string _tablename, string _name, params object[] _data)
+        {
+            Connect();
+            DataTable schema = null;
+            using (var schemaCommand = new MySqlCommand("SELECT * FROM " + _tablename, connection))
+            {
+                using (var reader = schemaCommand.ExecuteReader(CommandBehavior.SchemaOnly))
+                {
+                    schema = reader.GetSchemaTable();
+                }
+            }
+            MySqlCommand cmd = new MySqlCommand();
+            MySqlTransaction tr = null;
+            cmd.Connection = connection;
+            cmd.Transaction = tr;
+            StringBuilder s = new StringBuilder();
+            s.Append("UPDATE "+ _tablename + " SET ");
+            for(int i = 0; i < 3; i++)
+            {
+                s.Append(schema.Rows[i + 1]["ColumnName"] + "=" + _data[i] + ",");
+            }
+            s.Remove(s.Length - 1, 1);
+            s.Append(" WHERE NAME = " + _name);
+            cmd.CommandText = s.ToString();
+            cmd.ExecuteNonQuery();
+            Disconnect();
+        }
+
+
         /// <summary>
         /// İstenilen tablonun toplam sütun sayısını döndürür.
         /// </summary>
@@ -118,8 +161,22 @@ namespace Alfa_Vega
             Disconnect();
             return i;
         }
-        
 
+        /// <summary>
+        /// Adı verilen elemanı tablodan siler.
+        /// </summary>
+        /// <param name="_table"></param>
+        /// <param name="_name"></param>
+        public void Remove(string _table, string _name)
+        {
+            Connect();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+            cmd.CommandText = "DELETE FROM " + _table + " WHERE NAME = '" +_name+"'";
+            cmd.ExecuteNonQuery();
+            Disconnect();
+        }
+        
         public void GetClock()
         {
 

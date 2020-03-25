@@ -33,16 +33,16 @@ namespace Alfa_Vega
         /// </summary>
         public enum Unit
         {
-            Factory,
-            Department,
-            Place,
-            Machine,
-            Worker,
-            Product,
-            VEGA
+            FACTORIES,
+            DEPARTMENTS,
+            PLACES,
+            MACHINES,
+            WORKERS,
+            PRODUCTS,
+            VEGAS
         }
         public Mode SelectedMode = Mode.Add;
-        Unit SelectedUnit = Unit.Factory;
+        Unit SelectedUnit = Unit.FACTORIES;
         private void MoveIndicator(Control control)
         {
             indicator.Location = new Point(control.Location.X, indicator.Location.Y);
@@ -61,60 +61,65 @@ namespace Alfa_Vega
         private void btnFactory_Click(object sender, EventArgs e)
         {
             MoveIndicator((Control)sender);
-            SelectedUnit = Unit.Factory;
+            SelectedUnit = Unit.FACTORIES;
             if (SelectedMode != Mode.Delete)
             {
                 gbWorker.Enabled = false;
                 gbPlace.Enabled = false;
             }
+            Read();
 
         }
 
         private void btnDepartment_Click(object sender, EventArgs e)
         {
-            SelectedUnit = Unit.Department;
+            SelectedUnit = Unit.DEPARTMENTS;
             MoveIndicator((Control)sender);
             if (SelectedMode != Mode.Delete)
             {
                 gbWorker.Enabled = false;
                 gbPlace.Enabled = false;
             }
+            Read();
 
         }
 
         private void btnPlace_Click(object sender, EventArgs e)
         {
             MoveIndicator((Control)sender);
-            SelectedUnit = Unit.Place;
+            SelectedUnit = Unit.PLACES;
             if (SelectedMode != Mode.Delete)
             {
                 gbWorker.Enabled = false;
                 gbPlace.Enabled = true;
             }
+            Read();
 
         }
 
         private void btnMachine_Click(object sender, EventArgs e)
         {
             MoveIndicator((Control)sender);
-            SelectedUnit = Unit.Machine;
+            SelectedUnit = Unit.MACHINES;
             if (SelectedMode != Mode.Delete)
             {
                 gbWorker.Enabled = false;
                 gbPlace.Enabled = false;
             }
+            Read();
 
         }
 
         private void btnWorker_Click(object sender, EventArgs e)
         {
             MoveIndicator((Control)sender);
-            SelectedUnit = Unit.Worker;
+            SelectedUnit = Unit.WORKERS;
             if (SelectedMode != Mode.Delete)
             {
                 gbWorker.Enabled = true;
                 gbPlace.Enabled = false;
             }
+            Read();
         }
 
         private void btnProduct_Click(object sender, EventArgs e)
@@ -125,17 +130,19 @@ namespace Alfa_Vega
                 gbWorker.Enabled = false;
                 gbPlace.Enabled = false;
             }
+            Read();
 
         }
         private void btnVega_Click(object sender, EventArgs e)
         {
             MoveIndicator((Control)sender);
-            SelectedUnit = Unit.VEGA;
+            SelectedUnit = Unit.VEGAS;
             if (SelectedMode != Mode.Delete)
             {
                 gbWorker.Enabled = false;
                 gbPlace.Enabled = false;
             }
+            Read();
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -157,6 +164,7 @@ namespace Alfa_Vega
             gbInitial.Enabled = true;
             gbPlace.Enabled = true;
             gbWorker.Enabled = true;
+            Read();
         }
 
 
@@ -176,6 +184,7 @@ namespace Alfa_Vega
             gbEdit.Enabled = false;
             gbWorker.Enabled = false;
             gbPlace.Enabled = false;
+            cbName.Items.Add("Bill Gaasdtes");
 
         }
         VegaSystem vegas = new VegaSystem();
@@ -195,10 +204,10 @@ namespace Alfa_Vega
                     case Mode.Add:
                         switch (SelectedUnit)
                         {
-                            case Unit.Factory:
+                            case Unit.FACTORIES:
                                 try
                                 {
-                                    vegas.Add("FACTORIES",cbType.SelectedIndex,tbName.Text,cbOwner.SelectedIndex);
+                                    vegas.Add(Unit.FACTORIES.ToString(),cbType.SelectedIndex, "\"" + tbName.Text+"\"", cbOwner.SelectedIndex);
                                 }
                                 catch(Exception ex)
                                 {
@@ -207,74 +216,74 @@ namespace Alfa_Vega
                                 }
                                 break;
 
-                            case Unit.Department:
+                            case Unit.DEPARTMENTS:
                                 try
                                 {
-                                    vegas.Add("DEPARTMENTS", cbType.SelectedIndex, tbName.Text, cbOwner.SelectedIndex);
+                                    vegas.Add(Unit.DEPARTMENTS.ToString(), cbType.SelectedIndex, "\"" + tbName.Text+"\"", cbOwner.SelectedIndex);
                                 }
-                                catch
+                                catch (Exception ex)
                                 {
-                                    MessageBox.Show("Lütfen Gerekli Alanları Doldurun ve İnternete Bağlı Olduğunuzdan emin olun!",
+                                    MessageBox.Show("Lütfen Gerekli Alanları Doldurun ve İnternete Bağlı Olduğunuzdan emin olun! " + ex.ToString(),
                                                     "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                                 break;
 
-                            case Unit.Place:
+                            case Unit.PLACES:
                                 try
                                 {
-                                    vegas.Add("PLACES", cbType.SelectedIndex, tbName.Text, cbOwner.SelectedIndex,placeRFID.Text);
+                                    vegas.Add(Unit.PLACES.ToString(), cbType.SelectedIndex, "\"" + tbName.Text+"\"", cbOwner.SelectedIndex,"\"" + placeRFID.Text+"\"");
                                 }
-                                catch
+                                catch (Exception ex)
                                 {
-                                    MessageBox.Show("Lütfen Gerekli Alanları Doldurun ve İnternete Bağlı Olduğunuzdan emin olun!",
+                                    MessageBox.Show("Lütfen Gerekli Alanları Doldurun ve İnternete Bağlı Olduğunuzdan emin olun! " + ex.ToString(),
                                                     "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                                 break;
 
-                            case Unit.Machine:
+                            case Unit.MACHINES:
                                 try
                                 {
-                                    vegas.Add("MACHINES", cbType.SelectedIndex, tbName.Text, cbOwner.SelectedIndex);
+                                    vegas.Add(Unit.MACHINES.ToString(), cbType.SelectedIndex, "\"" + tbName.Text+"\"", cbOwner.SelectedIndex);
                                 }
-                                catch
+                                catch (Exception ex)
                                 {
-                                    MessageBox.Show("Lütfen Gerekli Alanları Doldurun ve İnternete Bağlı Olduğunuzdan emin olun!",
+                                    MessageBox.Show("Lütfen Gerekli Alanları Doldurun ve İnternete Bağlı Olduğunuzdan emin olun! " + ex.ToString(),
                                                     "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                                 break;
 
-                            case Unit.Worker:
+                            case Unit.WORKERS:
                                 try
                                 {
-                                    vegas.Add("WORKERS", cbType.SelectedIndex, tbName.Text, cbOwner.SelectedIndex,workerRFID.Text);
+                                    vegas.Add(Unit.WORKERS.ToString(), cbType.SelectedIndex, "\"" + tbName.Text+"\"", cbOwner.SelectedIndex,"\"" + workerRFID.Text+"\"");
                                 }
-                                catch
+                                catch (Exception ex)
                                 {
-                                    MessageBox.Show("Lütfen Gerekli Alanları Doldurun ve İnternete Bağlı Olduğunuzdan emin olun!",
+                                    MessageBox.Show("Lütfen Gerekli Alanları Doldurun ve İnternete Bağlı Olduğunuzdan emin olun! " + ex.ToString(),
                                                     "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                                 break;
 
-                            case Unit.Product:
+                            case Unit.PRODUCTS:
                                 try
                                 {
-                                    vegas.Add("PRODUCTS", cbType.SelectedIndex, tbName.Text, cbOwner.SelectedIndex);
+                                    vegas.Add(Unit.PRODUCTS.ToString(), cbType.SelectedIndex, "\"" + tbName.Text+"\"", cbOwner.SelectedIndex);
                                 }
-                                catch
+                                catch (Exception ex)
                                 {
-                                    MessageBox.Show("Lütfen Gerekli Alanları Doldurun ve İnternete Bağlı Olduğunuzdan emin olun!",
+                                    MessageBox.Show("Lütfen Gerekli Alanları Doldurun ve İnternete Bağlı Olduğunuzdan emin olun! " + ex.ToString(),
                                                     "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                                 break;
 
-                            case Unit.VEGA:
+                            case Unit.VEGAS:
                                 try
                                 {
-                                    vegas.Add("VEGAS", cbType.SelectedIndex, tbName.Text, cbOwner.SelectedIndex);
+                                    vegas.Add(Unit.VEGAS.ToString(), cbType.SelectedIndex, "\"" + tbName.Text+"\"", cbOwner.SelectedIndex);
                                 }
-                                catch
+                                catch (Exception ex)
                                 {
-                                    MessageBox.Show("Lütfen Gerekli Alanları Doldurun ve İnternete Bağlı Olduğunuzdan emin olun!",
+                                    MessageBox.Show("Lütfen Gerekli Alanları Doldurun ve İnternete Bağlı Olduğunuzdan emin olun! " + ex.ToString(),
                                                     "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                                 break;
@@ -283,86 +292,86 @@ namespace Alfa_Vega
                     case Mode.Edit:
                         switch (SelectedUnit)
                         {
-                            case Unit.Factory:
+                            case Unit.FACTORIES:
                                 try
                                 {
-                                    vegas.Set("FACTORIES", cbType.SelectedIndex, tbName.Text, cbOwner.SelectedIndex);
+                                    vegas.Set(Unit.FACTORIES.ToString(), "\"" + cbName.SelectedItem.ToString()+ "\"", cbType.SelectedIndex, "\"" + tbName.Text+"\"", cbOwner.SelectedIndex);
                                 }
-                                catch
+                                catch (Exception ex)
                                 {
-                                    MessageBox.Show("Lütfen Gerekli Alanları Doldurun ve İnternete Bağlı Olduğunuzdan emin olun!",
+                                    MessageBox.Show("Lütfen Gerekli Alanları Doldurun ve İnternete Bağlı Olduğunuzdan emin olun! " + ex.ToString(),
                                                     "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                                 break;
 
-                            case Unit.Department:
+                            case Unit.DEPARTMENTS:
                                 try
                                 {
-                                    vegas.Set("DEPARTMENTS", cbType.SelectedIndex, tbName.Text, cbOwner.SelectedIndex);
+                                    vegas.Set(Unit.DEPARTMENTS.ToString(), "\"" + cbName.SelectedItem.ToString() + "\"", cbType.SelectedIndex, "\"" + tbName.Text+"\"", cbOwner.SelectedIndex);
                                 }
-                                catch
+                                catch (Exception ex)
                                 {
-                                    MessageBox.Show("Lütfen Gerekli Alanları Doldurun ve İnternete Bağlı Olduğunuzdan emin olun!",
+                                    MessageBox.Show("Lütfen Gerekli Alanları Doldurun ve İnternete Bağlı Olduğunuzdan emin olun! " + ex.ToString(),
                                                     "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                                 break;
 
-                            case Unit.Place:
+                            case Unit.PLACES:
                                 try
                                 {
-                                    vegas.Set("PLACES", cbType.SelectedIndex, tbName.Text, cbOwner.SelectedIndex, placeRFID.Text);
+                                    vegas.Set(Unit.PLACES.ToString(), "\"" + cbName.SelectedItem.ToString() + "\"", cbType.SelectedIndex, "\"" + tbName.Text+"\"", cbOwner.SelectedIndex, "\"" + placeRFID.Text+"\"");
                                 }
-                                catch
+                                catch (Exception ex)
                                 {
-                                    MessageBox.Show("Lütfen Gerekli Alanları Doldurun ve İnternete Bağlı Olduğunuzdan emin olun!",
+                                    MessageBox.Show("Lütfen Gerekli Alanları Doldurun ve İnternete Bağlı Olduğunuzdan emin olun! " + ex.ToString(),
                                                     "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                                 break;
 
-                            case Unit.Machine:
+                            case Unit.MACHINES:
                                 try
                                 {
-                                    vegas.Set("MACHINES", cbType.SelectedIndex, tbName.Text, cbOwner.SelectedIndex);
+                                    vegas.Set(Unit.MACHINES.ToString(), "\"" + cbName.SelectedItem.ToString() + "\"", cbType.SelectedIndex, "\"" + tbName.Text+"\"", cbOwner.SelectedIndex);
                                 }
-                                catch
+                                catch (Exception ex)
                                 {
-                                    MessageBox.Show("Lütfen Gerekli Alanları Doldurun ve İnternete Bağlı Olduğunuzdan emin olun!",
+                                    MessageBox.Show("Lütfen Gerekli Alanları Doldurun ve İnternete Bağlı Olduğunuzdan emin olun! " + ex.ToString(),
                                                     "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                                 break;
 
-                            case Unit.Worker:
+                            case Unit.WORKERS:
                                 try
                                 {
-                                    vegas.Set("WORKERS", cbType.SelectedIndex, tbName.Text, cbOwner.SelectedIndex, workerRFID.Text);
+                                    vegas.Set(Unit.WORKERS.ToString(), "\"" + cbName.SelectedItem.ToString() + "\"", cbType.SelectedIndex, "\"" + tbName.Text+"\"", cbOwner.SelectedIndex, "\"" + workerRFID.Text+"\"");
                                 }
-                                catch
+                                catch (Exception ex)
                                 {
-                                    MessageBox.Show("Lütfen Gerekli Alanları Doldurun ve İnternete Bağlı Olduğunuzdan emin olun!",
+                                    MessageBox.Show("Lütfen Gerekli Alanları Doldurun ve İnternete Bağlı Olduğunuzdan emin olun! " + ex.ToString(),
                                                     "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                                 break;
 
-                            case Unit.Product:
+                            case Unit.PRODUCTS:
                                 try
                                 {
-                                    vegas.Set("PRODUCTS", cbType.SelectedIndex, tbName.Text, cbOwner.SelectedIndex);
+                                    vegas.Set(Unit.PRODUCTS.ToString(), "\"" + cbName.SelectedItem.ToString() + "\"", cbType.SelectedIndex, "\"" + tbName.Text+"\"", cbOwner.SelectedIndex);
                                 }
-                                catch
+                                catch (Exception ex)
                                 {
-                                    MessageBox.Show("Lütfen Gerekli Alanları Doldurun ve İnternete Bağlı Olduğunuzdan emin olun!",
+                                    MessageBox.Show("Lütfen Gerekli Alanları Doldurun ve İnternete Bağlı Olduğunuzdan emin olun! " + ex.ToString(),
                                                     "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                                 break;
 
-                            case Unit.VEGA:
+                            case Unit.VEGAS:
                                 try
                                 {
-                                    vegas.Set("VEGAS", cbType.SelectedIndex, tbName.Text, cbOwner.SelectedIndex);
+                                    vegas.Set(Unit.VEGAS.ToString(), "\"" + cbName.SelectedItem.ToString() + "\"", cbType.SelectedIndex, "\"" + tbName.Text+"\"", cbOwner.SelectedIndex);
                                 }
-                                catch
+                                catch (Exception ex)
                                 {
-                                    MessageBox.Show("Lütfen Gerekli Alanları Doldurun ve İnternete Bağlı Olduğunuzdan emin olun!",
+                                    MessageBox.Show("Lütfen Gerekli Alanları Doldurun ve İnternete Bağlı Olduğunuzdan emin olun! " + ex.ToString(),
                                                     "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                                 break;
@@ -371,31 +380,83 @@ namespace Alfa_Vega
                     case Mode.Delete:
                         switch (SelectedUnit)
                         {
-                            case Unit.Factory:
-                                vegas.Delete("FACTORIES", cbName.SelectedIndex);
+                            case Unit.FACTORIES:
+                                vegas.Delete(Unit.FACTORIES.ToString(), cbName.SelectedItem.ToString());
                                 break;
-                            case Unit.Department:
-                                vegas.Delete("DEPARTMENTS", cbName.SelectedIndex);
+                            case Unit.DEPARTMENTS:
+                                vegas.Delete(Unit.DEPARTMENTS.ToString(), cbName.SelectedItem.ToString());
                                 break;
-                            case Unit.Place:
-                                vegas.Delete("PLACES", cbName.SelectedIndex);
+                            case Unit.PLACES:
+                                vegas.Delete(Unit.PLACES.ToString(), cbName.SelectedItem.ToString());
                                 break;
-                            case Unit.Machine:
-                                vegas.Delete("MACHINES", cbName.SelectedIndex);
+                            case Unit.MACHINES:
+                                vegas.Delete(Unit.MACHINES.ToString(), cbName.SelectedItem.ToString());
                                 break;
-                            case Unit.Worker:
-                                vegas.Delete("WORKERS", cbName.SelectedIndex);
+                            case Unit.WORKERS:
+                                vegas.Delete(Unit.WORKERS.ToString(), cbName.SelectedItem.ToString());
                                 break;
-                            case Unit.Product:
-                                vegas.Delete("PRODUCTS", cbName.SelectedIndex);
+                            case Unit.PRODUCTS:
+                                vegas.Delete(Unit.PRODUCTS.ToString(), cbName.SelectedItem.ToString());
                                 break;
-                            case Unit.VEGA:
-                                vegas.Delete("VEGAS", cbName.SelectedIndex);
+                            case Unit.VEGAS:
+                                vegas.Delete(Unit.VEGAS.ToString(), cbName.SelectedItem.ToString());
                                 break;
                         }
                         break;
                 }
             }
         }
+
+        private void cbName_SelectedValueChanged(object sender, EventArgs e)
+        {
+            Read();
+        }
+
+        /// <summary>
+        /// Formda ilgli alanları serverden okuduğu alana göre doldurur.
+        /// </summary>
+        private void Read()
+        {
+            if (cbName.SelectedIndex != -1 && SelectedMode == Mode.Edit)
+            {
+                List<string> data = vegas.Read(Unit.FACTORIES.ToString(), cbName.SelectedIndex);
+                if (data.Count > 1)
+                {
+                    cbType.Items.Add(data[1]);
+                    cbType.SelectedIndex = cbType.Items.Count - 1;
+                    tbName.Text = data[2];
+                    cbOwner.Items.Add(data[3]);
+                    cbOwner.SelectedIndex = cbOwner.Items.Count - 1;
+
+                    if (SelectedUnit == Unit.WORKERS)
+                    {
+                        //"\"" + workerRFID.Text+"\"" = data[4];
+                    }
+                    else if (SelectedUnit == Unit.PLACES)
+                    {
+                        //"\"" + placeRFID.Text+"\"" = data[4];
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Veri bulunamdı!", "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Clear();
+                }
+            }
+            
+        }
+        /// <summary>
+        /// Formu temizler
+        /// </summary>
+        private void Clear()
+        {
+            cbName.SelectedIndex = -1;
+            cbType.SelectedIndex = -1;
+            tbName.Text = "";
+            cbOwner.SelectedIndex = -1;
+            workerRFID.Text = "";
+            placeRFID.Text = "";
+        }
     }
+    
 }
