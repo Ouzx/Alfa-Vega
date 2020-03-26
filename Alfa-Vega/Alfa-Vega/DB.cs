@@ -81,7 +81,7 @@ namespace Alfa_Vega
             Connect();
             using (MySqlDataReader reader = new MySqlCommand(cmd, connection).ExecuteReader())
             {
-                if (reader.Read())
+                while (reader.Read())
                 {
                     for (int i = 0; i < columns; i++) row.Add(reader.GetString(i));
                 }
@@ -143,7 +143,24 @@ namespace Alfa_Vega
         }
         
 
-
+        public List<List<string>> GetAll(string _table, string _column)
+        {
+            List<List<string>> data = new List<List<string>>();
+            string cmd = "SELECT ID, " +_column+" FROM " + _table;
+            Connect();
+            using (MySqlDataReader reader = new MySqlCommand(cmd, connection).ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    List<string> temp = new List<string>();
+                    temp.Add(reader.GetString(0));
+                    temp.Add(reader.GetString(1));
+                    data.Add(temp);
+                }
+            }
+            Disconnect();
+            return data;
+        }
 
         /// <summary>
         /// En son satırdaki id'yi döndürür.

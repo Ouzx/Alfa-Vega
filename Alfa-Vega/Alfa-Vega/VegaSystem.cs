@@ -91,6 +91,22 @@ namespace Alfa_Vega
             }
         }
 
+        /// <summary>
+        /// Veri tabanından istenilen sütunun verilerini çeker.
+        /// </summary>
+        public List<List<string>> GetParams(string _table, string _parameter)
+        {
+            try 
+            {
+                return GetAll(_table, _parameter);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Lütfen Gerekli Alanları Doldurun ve İnternete Bağlı Olduğunuzdan emin olun! " + ex.ToString(),
+                                                    "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
     }
 
     /// <summary>

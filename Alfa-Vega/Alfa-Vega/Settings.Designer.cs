@@ -157,8 +157,6 @@
             // cbType
             // 
             this.cbType.FormattingEnabled = true;
-            this.cbType.Items.AddRange(new object[] {
-            "0"});
             this.cbType.Location = new System.Drawing.Point(59, 44);
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(121, 29);
@@ -200,8 +198,6 @@
             // cbOwner
             // 
             this.cbOwner.FormattingEnabled = true;
-            this.cbOwner.Items.AddRange(new object[] {
-            "0"});
             this.cbOwner.Location = new System.Drawing.Point(489, 44);
             this.cbOwner.Name = "cbOwner";
             this.cbOwner.Size = new System.Drawing.Size(121, 29);
@@ -328,11 +324,6 @@
             // cbName
             // 
             this.cbName.FormattingEnabled = true;
-            this.cbName.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "Bill Gates"});
             this.cbName.Location = new System.Drawing.Point(68, 42);
             this.cbName.Name = "cbName";
             this.cbName.Size = new System.Drawing.Size(107, 29);

@@ -62,6 +62,7 @@ namespace Alfa_Vega
             indicator2.BringToFront();
         }
 
+
         private void btnFactory_Click(object sender, EventArgs e)
         {
             MoveIndicator((Control)sender);
@@ -71,6 +72,8 @@ namespace Alfa_Vega
                 gbWorker.Enabled = false;
                 gbPlace.Enabled = false;
             }
+            GetName(SelectedUnit);
+            GetType(SelectedUnit);
             Read();
 
         }
@@ -84,6 +87,8 @@ namespace Alfa_Vega
                 gbWorker.Enabled = false;
                 gbPlace.Enabled = false;
             }
+            GetName(SelectedUnit);
+            GetType(SelectedUnit);
             Read();
 
         }
@@ -97,6 +102,8 @@ namespace Alfa_Vega
                 gbWorker.Enabled = false;
                 gbPlace.Enabled = true;
             }
+            GetName(SelectedUnit);
+            GetType(SelectedUnit);
             Read();
 
         }
@@ -110,6 +117,8 @@ namespace Alfa_Vega
                 gbWorker.Enabled = false;
                 gbPlace.Enabled = false;
             }
+            GetName(SelectedUnit);
+            GetType(SelectedUnit);
             Read();
 
         }
@@ -123,6 +132,8 @@ namespace Alfa_Vega
                 gbWorker.Enabled = true;
                 gbPlace.Enabled = false;
             }
+            GetName(SelectedUnit);
+            GetType(SelectedUnit);
             Read();
         }
 
@@ -134,6 +145,8 @@ namespace Alfa_Vega
                 gbWorker.Enabled = false;
                 gbPlace.Enabled = false;
             }
+            GetName(SelectedUnit);
+            GetType(SelectedUnit);
             Read();
 
         }
@@ -147,6 +160,8 @@ namespace Alfa_Vega
                 gbWorker.Enabled = false;
                 gbPlace.Enabled = false;
             }
+            GetName(SelectedUnit);
+            GetType(SelectedUnit);
             Read();
         }
 
@@ -169,7 +184,11 @@ namespace Alfa_Vega
             gbInitial.Enabled = true;
             gbPlace.Enabled = true;
             gbWorker.Enabled = true;
+
+            GetName(SelectedUnit);
+            GetType(SelectedUnit);
             Read();
+
         }
 
 
@@ -181,7 +200,8 @@ namespace Alfa_Vega
             gbPlace.Enabled = false;
             gbWorker.Enabled = false;
             gbEdit.Enabled = true;
-
+            GetName(SelectedUnit);
+            GetType(SelectedUnit);
         }
 
         private void Settings_Load(object sender, EventArgs e)
@@ -189,7 +209,7 @@ namespace Alfa_Vega
             gbEdit.Enabled = false;
             gbWorker.Enabled = false;
             gbPlace.Enabled = false;
-            cbName.Items.Add("Bill Gaasdtes");
+            //GetType(SelectedUnit);
 
         }
         VegaSystem vegas = new VegaSystem();
@@ -211,31 +231,31 @@ namespace Alfa_Vega
                         switch (SelectedUnit)
                         {
                             case Unit.FACTORIES:
-                                vegas.Add(Unit.FACTORIES.ToString(), cbType.SelectedIndex, "\"" + tbName.Text + "\"", cbOwner.SelectedIndex);
+                                vegas.Add(Unit.FACTORIES.ToString(),Selected.TypeID, "\"" + tbName.Text + "\"", Selected.OwnerID);
                                 break;
 
                             case Unit.DEPARTMENTS:
-                                vegas.Add(Unit.DEPARTMENTS.ToString(), cbType.SelectedIndex, "\"" + tbName.Text + "\"", cbOwner.SelectedIndex);
+                                vegas.Add(Unit.DEPARTMENTS.ToString(),Selected.TypeID, "\"" + tbName.Text + "\"", Selected.OwnerID);
                                 break;
 
                             case Unit.PLACES:
-                                vegas.Add(Unit.PLACES.ToString(), cbType.SelectedIndex, "\"" + tbName.Text + "\"", cbOwner.SelectedIndex, "\"" + placeRFID.Text + "\"");
+                                vegas.Add(Unit.PLACES.ToString(),Selected.TypeID, "\"" + tbName.Text + "\"", Selected.OwnerID, "\"" + placeRFID.Text + "\"");
                                 break;
 
                             case Unit.MACHINES:
-                                vegas.Add(Unit.MACHINES.ToString(), cbType.SelectedIndex, "\"" + tbName.Text + "\"", cbOwner.SelectedIndex);
+                                vegas.Add(Unit.MACHINES.ToString(),Selected.TypeID, "\"" + tbName.Text + "\"", Selected.OwnerID);
                                 break;
 
                             case Unit.WORKERS:
-                                vegas.Add(Unit.WORKERS.ToString(), cbType.SelectedIndex, "\"" + tbName.Text + "\"", cbOwner.SelectedIndex, "\"" + workerRFID.Text + "\"");
+                                vegas.Add(Unit.WORKERS.ToString(),Selected.TypeID, "\"" + tbName.Text + "\"", Selected.OwnerID, "\"" + workerRFID.Text + "\"");
                                 break;
 
                             case Unit.PRODUCTS:
-                                vegas.Add(Unit.PRODUCTS.ToString(), cbType.SelectedIndex, "\"" + tbName.Text + "\"", cbOwner.SelectedIndex);
+                                vegas.Add(Unit.PRODUCTS.ToString(),Selected.TypeID, "\"" + tbName.Text + "\"", Selected.OwnerID);
                                 break;
 
                             case Unit.VEGAS:
-                                vegas.Add(Unit.VEGAS.ToString(), cbType.SelectedIndex, "\"" + tbName.Text + "\"", cbOwner.SelectedIndex);
+                                vegas.Add(Unit.VEGAS.ToString(),Selected.TypeID, "\"" + tbName.Text + "\"", Selected.OwnerID);
                                 break;
                         }
                         break;
@@ -244,31 +264,31 @@ namespace Alfa_Vega
                         switch (SelectedUnit)
                         {
                             case Unit.FACTORIES:
-                                vegas.Set(Unit.FACTORIES.ToString(), cbName.SelectedIndex, cbType.SelectedIndex, "\"" + tbName.Text + "\"", cbOwner.SelectedIndex);
+                                vegas.Set(Unit.FACTORIES.ToString(), Selected.NameID,Selected.TypeID, "\"" + tbName.Text + "\"", Selected.OwnerID);
                                 break;
 
                             case Unit.DEPARTMENTS:
-                                vegas.Set(Unit.DEPARTMENTS.ToString(), cbName.SelectedIndex, cbType.SelectedIndex, "\"" + tbName.Text + "\"", cbOwner.SelectedIndex);
+                                vegas.Set(Unit.DEPARTMENTS.ToString(), Selected.NameID,Selected.TypeID, "\"" + tbName.Text + "\"", Selected.OwnerID);
                                 break;
 
                             case Unit.PLACES:
-                                vegas.Set(Unit.PLACES.ToString(), cbName.SelectedIndex, cbType.SelectedIndex, "\"" + tbName.Text + "\"", cbOwner.SelectedIndex, "\"" + placeRFID.Text + "\"");
+                                vegas.Set(Unit.PLACES.ToString(), Selected.NameID,Selected.TypeID, "\"" + tbName.Text + "\"", Selected.OwnerID, "\"" + placeRFID.Text + "\"");
                                 break;
 
                             case Unit.MACHINES:
-                                vegas.Set(Unit.MACHINES.ToString(), cbName.SelectedIndex, cbType.SelectedIndex, "\"" + tbName.Text + "\"", cbOwner.SelectedIndex);
+                                vegas.Set(Unit.MACHINES.ToString(), Selected.NameID,Selected.TypeID, "\"" + tbName.Text + "\"", Selected.OwnerID);
                                 break;
 
                             case Unit.WORKERS:
-                                vegas.Set(Unit.WORKERS.ToString(), cbName.SelectedIndex, cbType.SelectedIndex, "\"" + tbName.Text + "\"", cbOwner.SelectedIndex, "\"" + workerRFID.Text + "\"");
+                                vegas.Set(Unit.WORKERS.ToString(), Selected.NameID,Selected.TypeID, "\"" + tbName.Text + "\"", Selected.OwnerID, "\"" + workerRFID.Text + "\"");
                                 break;
 
                             case Unit.PRODUCTS:
-                                vegas.Set(Unit.PRODUCTS.ToString(), cbName.SelectedIndex, cbType.SelectedIndex, "\"" + tbName.Text + "\"", cbOwner.SelectedIndex);
+                                vegas.Set(Unit.PRODUCTS.ToString(), Selected.NameID,Selected.TypeID, "\"" + tbName.Text + "\"", Selected.OwnerID);
                                 break;
 
                             case Unit.VEGAS:
-                                vegas.Set(Unit.VEGAS.ToString(), cbName.SelectedIndex, cbType.SelectedIndex, "\"" + tbName.Text + "\"", cbOwner.SelectedIndex);
+                                vegas.Set(Unit.VEGAS.ToString(), Selected.NameID,Selected.TypeID, "\"" + tbName.Text + "\"", Selected.OwnerID);
                                 break;
                         }
                         break;
@@ -277,40 +297,44 @@ namespace Alfa_Vega
                         switch (SelectedUnit)
                         {
                             case Unit.FACTORIES:
-                                vegas.Delete(Unit.FACTORIES.ToString(), cbName.SelectedIndex);
+                                vegas.Delete(Unit.FACTORIES.ToString(), Selected.NameID);
                                 break;
 
                             case Unit.DEPARTMENTS:
-                                vegas.Delete(Unit.DEPARTMENTS.ToString(), cbName.SelectedIndex);
+                                vegas.Delete(Unit.DEPARTMENTS.ToString(), Selected.NameID);
                                 break;
 
                             case Unit.PLACES:
-                                vegas.Delete(Unit.PLACES.ToString(), cbName.SelectedIndex);
+                                vegas.Delete(Unit.PLACES.ToString(), Selected.NameID);
                                 break;
 
                             case Unit.MACHINES:
-                                vegas.Delete(Unit.MACHINES.ToString(), cbName.SelectedIndex);
+                                vegas.Delete(Unit.MACHINES.ToString(), Selected.NameID);
                                 break;
 
                             case Unit.WORKERS:
-                                vegas.Delete(Unit.WORKERS.ToString(), cbName.SelectedIndex);
+                                vegas.Delete(Unit.WORKERS.ToString(), Selected.NameID);
                                 break;
 
                             case Unit.PRODUCTS:
-                                vegas.Delete(Unit.PRODUCTS.ToString(), cbName.SelectedIndex);
+                                vegas.Delete(Unit.PRODUCTS.ToString(), Selected.NameID);
                                 break;
 
                             case Unit.VEGAS:
-                                vegas.Delete(Unit.VEGAS.ToString(), cbName.SelectedIndex);
+                                vegas.Delete(Unit.VEGAS.ToString(), Selected.NameID);
                                 break;
                         }
                         break;
                 }
             }
+            GetName(SelectedUnit);
+            GetType(SelectedUnit);
         }
 
         private void cbName_SelectedValueChanged(object sender, EventArgs e)
         {
+            GetName(SelectedUnit);
+            Selected.NameID = Convert.ToInt32(NAMES[cbName.SelectedIndex][0]); 
             Read();
         }
 
@@ -321,24 +345,23 @@ namespace Alfa_Vega
         {
             if (cbName.SelectedIndex != -1 && SelectedMode == Mode.Edit)
             {
-                List<string> data = vegas.Read(Unit.FACTORIES.ToString(), cbName.SelectedIndex);
-                if (data.Count > 1)
+                List<string> data = vegas.Get(SelectedUnit.ToString(), Selected.NameID);
+                
+                if (data.Count > 0)
                 {
-                    cbType.Items.Add(data[1]);
-                    cbType.SelectedIndex = cbType.Items.Count - 1;
+                    cbType.SelectedIndex = Convert.ToInt32(data[1]);
                     tbName.Text = data[2];
-                    cbOwner.Items.Add(data[3]);
-                    cbOwner.SelectedIndex = cbOwner.Items.Count - 1;
-
-                    if (SelectedUnit == Unit.WORKERS)
+                    //cbOwner.SelectedIndex = Convert.ToInt32(data[3]);
+                    if(SelectedUnit == Unit.WORKERS )
                     {
-                        //"\"" + workerRFID.Text+"\"" = data[4];
+                        workerRFID.Text = data[4];
                     }
-                    else if (SelectedUnit == Unit.PLACES)
+                    else if(SelectedUnit == Unit.PLACES)
                     {
-                        //"\"" + placeRFID.Text+"\"" = data[4];
+                        workerRFID.Text = data[4];
                     }
                 }
+                
                 else
                 {
                     MessageBox.Show("Veri bulunamdı!", "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -360,6 +383,101 @@ namespace Alfa_Vega
             workerRFID.Text = "";
             placeRFID.Text = "";
         }
+
+        public static class Selected
+        {
+            public static int NameID = 0;
+            public static int TypeID = 0;
+            public static int OwnerID = 0;
+        }
+        /// <summary>
+        /// İstenilen Type tablosunun verilerini ekler.
+        /// </summary>
+        private void GetType(Unit _unit)
+        {
+            if (SelectedMode != Mode.Delete)
+            {
+                /*
+                 * Şimdilik temel olarak NAME çağırıyorum ancak değiştirilebilir. Zaten sıra bozulmadan çağırdığım için
+                 * Aynı isim ID'yi de temsil ediyor.
+                 */
+                cbType.Items.Clear();
+                cbType.Text = "";
+                string[] Types = new string[] {"FACTORY_TYPES","DEPARTMENT_TYPES","PLACE_TYPES",
+                                           "MACHINE_TYPES","WORKER_TYPES","PRODUCT_TYPES","VEGA_TYPES"};
+                NAMES = vegas.GetParams(Types[(int)_unit], "NAME");
+                if (NAMES.Count > 0)
+                {
+                    foreach (List<string> s in NAMES) 
+                    {
+                        cbType.Items.Add(s[0]);
+                        //Selected.TypeID = Convert.ToInt32(s[0]);
+                    }
+                    cbType.SelectedIndex = 0;
+                }
+            }
+        }
+        List<List<string>> NAMES = new List<List<string>>();
+
+
+        /// <summary>
+        /// İstenilen bağlılık tablosunun verilerini ekler.
+        /// </summary>
+        //private void GetOwner(Unit _unit)
+        //{
+        //    /*
+        //     * Şimdilik temel olarak NAME çağırıyorum ancak değiştirilebilir. Zaten sıra bozulmadan çağırdığım için
+        //     * Aynı isim ID'yi de temsil ediyor.
+        //     */
+        //    string[] Types = new string[] {"FACTORY_","DEPARTMENT_TYPES","PLACE_TYPES",
+        //                                   "MACHINE_TYPES","WORKER_TYPES","PRODUCT_TYPES","VEGA_TYPES"};
+        //    List<string> data = vegas.GetParams(Types[(int)_unit], "NAME");
+        //    foreach (string s in data) cbType.Items.Add(s);
+        //}
+
+        /// <summary>
+        /// İstenilen kimlik tablosunun verilerini  ekler.
+        /// </summary>
+        private void GetName(Unit _unit)
+        {
+            /*
+             * Şimdilik temel olarak NAME çağırıyorum ancak değiştirilebilir. Zaten sıra bozulmadan çağırdığım için
+             * Aynı isim ID'yi de temsil ediyor.
+             */
+            if (SelectedMode != Mode.Add)
+            {
+                cbName.Items.Clear();
+                cbName.Text = "";
+                List<List<string>> data = vegas.GetParams(_unit.ToString(), "NAME");
+                if (data.Count > 0)
+                {
+                    foreach (List<string> s in data)
+                    {
+                        cbName.Items.Add(s[1]);
+                        //Selected.NameID = Convert.ToInt32(s[0]);
+                    }
+                    cbName.SelectedIndex = 0;
+                    if (cbName.SelectedItem != null) tbName.Text = cbName.SelectedItem.ToString();
+                }
+            }
+        }
+
+        
+        /// <summary>
+        /// İstenilen RFID tablosunun verilerini  ekler.
+        /// </summary>
+        //private void RFID(Unit _unit)
+        //{
+        //    /*
+        //     * Şimdilik temel olarak NAME çağırıyorum ancak değiştirilebilir. Zaten sıra bozulmadan çağırdığım için
+        //     * Aynı isim ID'yi de temsil ediyor.
+        //     */
+        //    string[] Types = new string[] {"FACTORY_TYPES","DEPARTMENT_TYPES","PLACE_TYPES",
+        //                                   "MACHINE_TYPES","WORKER_TYPES","PRODUCT_TYPES","VEGA_TYPES"};
+        //    List<string> data = vegas.GetParams(Types[(int)_unit], "NAME");
+        //    foreach (string s in data) cbType.Items.Add(s);
+        //}
+
     }
 
 }
