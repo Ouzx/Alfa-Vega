@@ -173,8 +173,8 @@ namespace Alfa_Vega
                         break;
 
                     case Selected.Mode.Owner:
-                        Selected.TypeInt.Clear();
-                        Selected.TypeName.Clear();
+                        Selected.OwnerInt.Clear();
+                        Selected.OwnerName.Clear();
                         while (reader.Read())
                         {
                             Selected.OwnerInt.Add(reader.GetInt32(0));

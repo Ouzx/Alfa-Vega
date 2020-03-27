@@ -74,6 +74,7 @@ namespace Alfa_Vega
             }
             GetName(SelectedUnit);
             GetType(SelectedUnit);
+            GetOwner(SelectedUnit);
             Read();
         }
 
@@ -88,6 +89,7 @@ namespace Alfa_Vega
             }
             GetName(SelectedUnit);
             GetType(SelectedUnit);
+            GetOwner(SelectedUnit);
             Read();
         }
 
@@ -102,6 +104,7 @@ namespace Alfa_Vega
             }
             GetName(SelectedUnit);
             GetType(SelectedUnit);
+            GetOwner(SelectedUnit);
             Read();
         }
 
@@ -116,6 +119,7 @@ namespace Alfa_Vega
             }
             GetName(SelectedUnit);
             GetType(SelectedUnit);
+            GetOwner(SelectedUnit);
             Read();
         }
 
@@ -130,6 +134,7 @@ namespace Alfa_Vega
             }
             GetName(SelectedUnit);
             GetType(SelectedUnit);
+            GetOwner(SelectedUnit);
             Read();
 
         }
@@ -144,6 +149,7 @@ namespace Alfa_Vega
             }
             GetName(SelectedUnit);
             GetType(SelectedUnit);
+            GetOwner(SelectedUnit);
             Read();
         }
 
@@ -158,6 +164,7 @@ namespace Alfa_Vega
             }
             GetName(SelectedUnit);
             GetType(SelectedUnit);
+            GetOwner(SelectedUnit);
             Read();
         }
 
@@ -171,6 +178,7 @@ namespace Alfa_Vega
             gbWorker.Enabled = true;
             btnSave.Enabled = true;
             GetType(SelectedUnit);
+            GetOwner(SelectedUnit);
 
         }
 
@@ -184,7 +192,8 @@ namespace Alfa_Vega
             gbWorker.Enabled = true;
             GetName(SelectedUnit);
             GetType(SelectedUnit);
-            if(!Read())
+            GetOwner(SelectedUnit);
+            if (!Read())
             {
                 MessageBox.Show("Veri bulunamdı!", "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 gbEdit.Enabled = false;
@@ -222,6 +231,7 @@ namespace Alfa_Vega
             gbWorker.Enabled = false;
             gbPlace.Enabled = false;
             GetType(SelectedUnit);
+            GetOwner(SelectedUnit);
         }
         VegaSystem vegas = new VegaSystem();
 
@@ -342,31 +352,9 @@ namespace Alfa_Vega
             Clear();
             GetName(SelectedUnit);
             GetType(SelectedUnit);
+            GetOwner(SelectedUnit);
         }
 
-        private void cbName_SelectedValueChanged(object sender, EventArgs e)
-        {
-            if(cbName.Items.Count > 0)
-            {
-                if (cbName.SelectedIndex == -1)
-                {
-                    cbName.SelectedIndex = 0;
-                    Selected.NameID = Selected.NameInt[cbName.SelectedIndex];
-                    Read();
-                }
-                else
-                {
-                    Selected.NameID = Selected.NameInt[cbName.SelectedIndex];
-                    Read();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Veri bulunamdı!", "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Clear();
-                Selected.NameID = 0;
-            }
-        }
 
         /// <summary>
         /// Formda ilgli alanları serverden okuduğu alana göre doldurur.
@@ -409,7 +397,7 @@ namespace Alfa_Vega
             cbName.SelectedIndex = -1;
             cbType.SelectedIndex = -1;
             tbName.Text = "";
-            cbOwner.SelectedIndex = -1;
+            //cbOwner.SelectedIndex = -1;
             workerRFID.Text = "";
             placeRFID.Text = "";
         }
@@ -432,17 +420,57 @@ namespace Alfa_Vega
                 cbType.SelectedIndex = 0;
             }
         }
-
-        /// <summary>
-        /// İstenilen bağlılık tablosunun verilerini ekler.
+        /// /// <summary>
+        /// Bağlılık sistemi Seviyelerden oluşur. 
+        /// Her seviyenin kendine özgü yetkisi ve alt seviyesi bulunur.
+        /// 0: En yetkili  -->  N: En düşük yetkili.
+        /// Her seviye bir üst seviyesinin(parent) id'sini tutar.
         /// </summary>
-        //private void GetOwner(Unit _unit)
-        //{
-        //    string[] Types = new string[] {"FACTORY_","DEPARTMENT_TYPES","PLACE_TYPES",
-        //                                   "MACHINE_TYPES","WORKER_TYPES","PRODUCT_TYPES","VEGA_TYPES"};
-        //    List<string> data = vegas.GetParams(Types[(int)_unit], "NAME");
-        //    foreach (string s in data) cbType.Items.Add(s);
-        //}
+        private void GetOwner(Unit _unit)
+        {
+            cbOwner.Items.Clear();
+            cbOwner.Text = "";
+            string temp = "";
+            switch (_unit)
+            {
+                case Unit.FACTORIES:
+                    temp = "USERS";
+                    break;
+                case Unit.DEPARTMENTS:
+                    temp = "FACTORIES";
+                    break;
+                case Unit.PLACES:
+                    temp = "DEPARTMENTS";
+                    break;
+                case Unit.MACHINES:
+                    temp = "DEPARTMENTS";
+                    break;
+                case Unit.WORKERS:
+                    temp = "DEPARTMENTS";
+                    break;
+                case Unit.PRODUCTS:
+                    temp = "USERS";
+                    break;
+                case Unit.VEGAS:
+                    temp = "DEPARTMENTS";
+                    break;
+            }
+            
+            vegas.GetParams(temp, Selected.Mode.Owner);
+
+            if (Selected.OwnerName.Count > 0)
+            {
+                cbOwner.Items.AddRange(Selected.OwnerName.ToArray());
+                cbOwner.SelectedIndex = 0;
+            }
+            else
+            {
+                MessageBox.Show("Bağlılık Bulunamadı! \n" +
+                               "Önce bir bağlılık oluşturun.\n" +
+                               "Detaylar için sistem yöneticinize başvurun.", "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Selected.NameID = 0;
+            }
+        }
 
         /// <summary>
         /// İstenilen kimlik tablosunun verilerini  ekler.
@@ -463,8 +491,53 @@ namespace Alfa_Vega
 
 
         }
+        private void cbName_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cbName.Items.Count > 0)
+            {
+                if (cbName.SelectedIndex == -1)
+                {
+                    cbName.SelectedIndex = 0;
+                    Selected.NameID = Selected.NameInt[cbName.SelectedIndex];
+                    Read();
+                }
+                else
+                {
+                    Selected.NameID = Selected.NameInt[cbName.SelectedIndex];
+                    Read();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Veri bulunamdı!", "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Clear();
+                Selected.NameID = 0;
+            }
+        }
 
-        
+        private void cbOwner_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cbOwner.Items.Count > 0)
+            {
+                if (cbOwner.SelectedIndex == -1)
+                {
+                    cbName.SelectedIndex = 0;
+                    Selected.OwnerID = Selected.OwnerInt[cbOwner.SelectedIndex];
+                }
+                else
+                {
+                    Selected.OwnerID = Selected.OwnerInt[cbOwner.SelectedIndex];
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bağlılık Bulunamadı! \n" +
+                                "Önce bir bağlılık oluşturun.\n" +
+                                "Detaylar için sistem yöneticinize başvurun.", "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Selected.NameID = 0;
+            }
+        }
+
         /// <summary>
         /// İstenilen RFID tablosunun verilerini  ekler.
         /// </summary>

@@ -178,7 +178,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(238, 47);
+            this.label2.Location = new System.Drawing.Point(213, 47);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 21);
             this.label2.TabIndex = 10;
@@ -189,7 +189,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label3.Location = new System.Drawing.Point(418, 47);
+            this.label3.Location = new System.Drawing.Point(403, 47);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 21);
             this.label3.TabIndex = 12;
@@ -198,16 +198,17 @@
             // cbOwner
             // 
             this.cbOwner.FormattingEnabled = true;
-            this.cbOwner.Location = new System.Drawing.Point(489, 44);
+            this.cbOwner.Location = new System.Drawing.Point(479, 44);
             this.cbOwner.Name = "cbOwner";
-            this.cbOwner.Size = new System.Drawing.Size(121, 29);
+            this.cbOwner.Size = new System.Drawing.Size(135, 29);
             this.cbOwner.TabIndex = 11;
+            this.cbOwner.SelectedValueChanged += new System.EventHandler(this.cbOwner_SelectedValueChanged);
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(282, 44);
+            this.tbName.Location = new System.Drawing.Point(257, 44);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(100, 27);
+            this.tbName.Size = new System.Drawing.Size(127, 27);
             this.tbName.TabIndex = 13;
             // 
             // gbInitial

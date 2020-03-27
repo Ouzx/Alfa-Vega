@@ -35,7 +35,7 @@ namespace Alfa_Vega
             Name,
             Owner
         }
-
+        
         /// <summary>
         /// cbName üzerinde listelencek olan Birimlerin isimleri.
         /// </summary>
@@ -63,5 +63,7 @@ namespace Alfa_Vega
         /// </summary>
         public static List<int> OwnerInt = new List<int>();
 
+        
+      
     }
 }
