@@ -142,6 +142,7 @@ namespace Alfa_Vega
         private void btnProduct_Click(object sender, EventArgs e)
         {
             MoveIndicator((Control)sender);
+            SelectedUnit = Unit.PRODUCTS;
             if (SelectedMode != Mode.Delete)
             {
                 gbWorker.Enabled = false;
@@ -365,16 +366,22 @@ namespace Alfa_Vega
             List<string> data = vegas.Get(SelectedUnit.ToString(), Selected.NameID);
             if (data.Count > 0)
             {
+                //Eğer Type Combo box'ı patlarsa; 
+                //Owner combo box'ı ile aynı formata geçç.!!!
                 cbType.SelectedIndex = Convert.ToInt32(data[1]);
                 tbName.Text = data[2];
-                //cbOwner.SelectedIndex = Convert.ToInt32(data[3]);
+                try
+                {
+                    cbOwner.SelectedIndex = Selected.OwnerInt.IndexOf(Convert.ToInt32(data[3]));
+                }
+                catch { }//cbOwner.SelectedIndex = Convert.ToInt32(data[3]);
                 if (SelectedUnit == Unit.WORKERS)
                 {
                     workerRFID.Text = data[4];
                 }
                 else if (SelectedUnit == Unit.PLACES)
                 {
-                    workerRFID.Text = data[4];
+                    placeRFID.Text = data[4];
                 }
                 btnSave.Enabled = true;
                 return true;
@@ -428,6 +435,9 @@ namespace Alfa_Vega
         /// </summary>
         private void GetOwner(Unit _unit)
         {
+
+            Selected.OwnerInt.Clear();
+            Selected.OwnerName.Clear();
             cbOwner.Items.Clear();
             cbOwner.Text = "";
             string temp = "";
@@ -455,8 +465,8 @@ namespace Alfa_Vega
                     temp = "DEPARTMENTS";
                     break;
             }
-            
-            vegas.GetParams(temp, Selected.Mode.Owner);
+            if (SelectedUnit == Unit.VEGAS) vegas.GetVegas();
+            else vegas.GetParams(temp, Selected.Mode.Owner);
 
             if (Selected.OwnerName.Count > 0)
             {
@@ -522,7 +532,7 @@ namespace Alfa_Vega
                 if (cbOwner.SelectedIndex == -1)
                 {
                     cbName.SelectedIndex = 0;
-                    Selected.OwnerID = Selected.OwnerInt[cbOwner.SelectedIndex];
+                    Selected.OwnerID = Selected.OwnerInt[0];
                 }
                 else
                 {

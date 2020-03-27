@@ -96,11 +96,23 @@ namespace Alfa_Vega
         /// </summary>
         public void GetParams(string _table, Selected.Mode mode)
         {
-            try 
+            try
             {
-                GetAll(_table,mode);
+                GetAll(_table, mode);
             }
-            catch(Exception ex)
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lütfen Gerekli Alanları Doldurun ve İnternete Bağlı Olduğunuzdan emin olun! " + ex.ToString(),
+                                                    "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        public void GetVegas()
+        {
+            try
+            {
+                GetVEGA();
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Lütfen Gerekli Alanları Doldurun ve İnternete Bağlı Olduğunuzdan emin olun! " + ex.ToString(),
                                                     "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -60,7 +60,7 @@ namespace Alfa_Vega
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = connection;
             cmd.CommandText = _cmd;
-            cmd.Prepare();
+            //cmd.Prepare();
             cmd.ExecuteNonQuery();
             Disconnect();
         }
@@ -141,11 +141,13 @@ namespace Alfa_Vega
             cmd.ExecuteNonQuery();
             Disconnect();
         }
-        
 
+        /// <summary>
+        /// İstenilen tablodan ID ve Name'i çeker.
+        /// </summary>
         public void GetAll(string _table, Selected.Mode mode)
         {
-            
+
             string cmd = "SELECT ID, NAME FROM " + _table;
             Connect();
             using (MySqlDataReader reader = new MySqlCommand(cmd, connection).ExecuteReader())
@@ -183,6 +185,34 @@ namespace Alfa_Vega
                         break;
                 }
             }
+            Disconnect();
+        }
+
+        /// <summary>
+        /// Vega'ların bağlılık sistemi diğer birimlerden farklı olduğu için;
+        /// tüm bağlılıklardan ayrı ayrı ve senksron bir şekilde veri çekmek gerekiyordu.
+        /// Metot şu şekilde çalışıyor. 
+        /// Her bağlılık biriminin enum karşılığı alınıp(örn: 3 olsun) => Çekilen id'ye eklenir. 30005 gibi.
+        /// </summary>
+        public void GetVEGA()
+        {
+
+            Connect();
+            for (int i = 0; i < 6; i++)
+            {
+                string s = ((Settings.Unit)i).ToString();
+                string cmd = "SELECT ID, NAME FROM " + s;
+                using (MySqlDataReader reader = new MySqlCommand(cmd, connection).ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        //string tempp = reader.GetInt32(0).ToString(i.ToString() + "0000");
+                        Selected.OwnerInt.Add(Convert.ToInt32(reader.GetInt32(0).ToString(i.ToString() + "0000")));
+                        Selected.OwnerName.Add(reader.GetString(1));
+                    }
+                }
+            }
+            
             Disconnect();
         }
 
