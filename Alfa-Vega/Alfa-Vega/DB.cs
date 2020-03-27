@@ -143,41 +143,42 @@ namespace Alfa_Vega
         }
         
 
-        public void GetAll(string _table, string _column, Selected.Mode mode)
+        public void GetAll(string _table, Selected.Mode mode)
         {
-            string cmd = "SELECT ID, " +_column+" FROM " + _table;
+            
+            string cmd = "SELECT ID, NAME FROM " + _table;
             Connect();
             using (MySqlDataReader reader = new MySqlCommand(cmd, connection).ExecuteReader())
             {
                 switch (mode)
                 {
                     case Selected.Mode.Name:
+                        Selected.NameInt.Clear();
+                        Selected.NameName.Clear();
                         while (reader.Read())
                         {
-                            List<string> temp = new List<string>();
-                            temp.Add(reader.GetString(0));
-                            temp.Add(reader.GetString(1));
-                            Selected.NAMES.Add(temp);
+                            Selected.NameInt.Add(reader.GetInt32(0));
+                            Selected.NameName.Add(reader.GetString(1));
                         }
                         break;
 
                     case Selected.Mode.Type:
+                        Selected.TypeInt.Clear();
+                        Selected.TypeName.Clear();
                         while (reader.Read())
                         {
-                            List<string> temp = new List<string>();
-                            temp.Add(reader.GetString(0));
-                            temp.Add(reader.GetString(1));
-                            Selected.TYPES.Add(temp);
+                            Selected.TypeInt.Add(reader.GetInt32(0));
+                            Selected.TypeName.Add(reader.GetString(1));
                         }
                         break;
 
                     case Selected.Mode.Owner:
+                        Selected.TypeInt.Clear();
+                        Selected.TypeName.Clear();
                         while (reader.Read())
                         {
-                            List<string> temp = new List<string>();
-                            temp.Add(reader.GetString(0));
-                            temp.Add(reader.GetString(1));
-                            Selected.OWNER.Add(temp);
+                            Selected.OwnerInt.Add(reader.GetInt32(0));
+                            Selected.OwnerName.Add(reader.GetString(1));
                         }
                         break;
                 }

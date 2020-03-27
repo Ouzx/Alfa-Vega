@@ -112,7 +112,7 @@
             this.panelUpper.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelUpper.Location = new System.Drawing.Point(200, 0);
             this.panelUpper.Name = "panelUpper";
-            this.panelUpper.Size = new System.Drawing.Size(978, 48);
+            this.panelUpper.Size = new System.Drawing.Size(1014, 48);
             this.panelUpper.TabIndex = 1;
             // 
             // buttonUser
@@ -123,7 +123,7 @@
             this.buttonUser.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.buttonUser.Image = global::Alfa_Vega.Properties.Resources.icons8_user;
             this.buttonUser.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonUser.Location = new System.Drawing.Point(602, 0);
+            this.buttonUser.Location = new System.Drawing.Point(638, 0);
             this.buttonUser.Name = "buttonUser";
             this.buttonUser.Size = new System.Drawing.Size(376, 48);
             this.buttonUser.TabIndex = 1;
@@ -158,7 +158,7 @@
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(200, 48);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(978, 513);
+            this.panelMain.Size = new System.Drawing.Size(1014, 513);
             this.panelMain.TabIndex = 2;
             // 
             // Main
@@ -167,7 +167,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Alfa_Vega.Properties.Resources.Başlıksız_111;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1178, 561);
+            this.ClientSize = new System.Drawing.Size(1214, 561);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelUpper);
             this.Controls.Add(this.panelMenu);

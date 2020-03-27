@@ -94,11 +94,11 @@ namespace Alfa_Vega
         /// <summary>
         /// Veri tabanından istenilen sütunun verilerini çeker.
         /// </summary>
-        public void GetParams(string _table, string _parameter, Selected.Mode mode)
+        public void GetParams(string _table, Selected.Mode mode)
         {
             try 
             {
-                GetAll(_table, _parameter,mode);
+                GetAll(_table,mode);
             }
             catch(Exception ex)
             {
