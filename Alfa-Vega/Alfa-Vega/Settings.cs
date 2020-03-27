@@ -75,7 +75,6 @@ namespace Alfa_Vega
             GetName(SelectedUnit);
             GetType(SelectedUnit);
             Read();
-
         }
 
         private void btnDepartment_Click(object sender, EventArgs e)
@@ -90,7 +89,6 @@ namespace Alfa_Vega
             GetName(SelectedUnit);
             GetType(SelectedUnit);
             Read();
-
         }
 
         private void btnPlace_Click(object sender, EventArgs e)
@@ -105,7 +103,6 @@ namespace Alfa_Vega
             GetName(SelectedUnit);
             GetType(SelectedUnit);
             Read();
-
         }
 
         private void btnMachine_Click(object sender, EventArgs e)
@@ -120,7 +117,6 @@ namespace Alfa_Vega
             GetName(SelectedUnit);
             GetType(SelectedUnit);
             Read();
-
         }
 
         private void btnWorker_Click(object sender, EventArgs e)
@@ -148,7 +144,6 @@ namespace Alfa_Vega
             GetName(SelectedUnit);
             GetType(SelectedUnit);
             Read();
-
         }
 
         private void btnVega_Click(object sender, EventArgs e)
@@ -184,11 +179,9 @@ namespace Alfa_Vega
             gbInitial.Enabled = true;
             gbPlace.Enabled = true;
             gbWorker.Enabled = true;
-
             GetName(SelectedUnit);
             GetType(SelectedUnit);
             Read();
-
         }
 
 
@@ -201,7 +194,6 @@ namespace Alfa_Vega
             gbWorker.Enabled = false;
             gbEdit.Enabled = true;
             GetName(SelectedUnit);
-            GetType(SelectedUnit);
         }
 
         private void Settings_Load(object sender, EventArgs e)
@@ -209,8 +201,7 @@ namespace Alfa_Vega
             gbEdit.Enabled = false;
             gbWorker.Enabled = false;
             gbPlace.Enabled = false;
-            //GetType(SelectedUnit);
-
+            GetType(SelectedUnit);
         }
         VegaSystem vegas = new VegaSystem();
 
@@ -327,14 +318,14 @@ namespace Alfa_Vega
                         break;
                 }
             }
+            Clear();
             GetName(SelectedUnit);
             GetType(SelectedUnit);
+            Read();
         }
 
         private void cbName_SelectedValueChanged(object sender, EventArgs e)
         {
-            GetName(SelectedUnit);
-            Selected.NameID = Convert.ToInt32(NAMES[cbName.SelectedIndex][0]); 
             Read();
         }
 
@@ -384,12 +375,7 @@ namespace Alfa_Vega
             placeRFID.Text = "";
         }
 
-        public static class Selected
-        {
-            public static int NameID = 0;
-            public static int TypeID = 0;
-            public static int OwnerID = 0;
-        }
+        
         /// <summary>
         /// İstenilen Type tablosunun verilerini ekler.
         /// </summary>
@@ -397,18 +383,15 @@ namespace Alfa_Vega
         {
             if (SelectedMode != Mode.Delete)
             {
-                /*
-                 * Şimdilik temel olarak NAME çağırıyorum ancak değiştirilebilir. Zaten sıra bozulmadan çağırdığım için
-                 * Aynı isim ID'yi de temsil ediyor.
-                 */
                 cbType.Items.Clear();
                 cbType.Text = "";
                 string[] Types = new string[] {"FACTORY_TYPES","DEPARTMENT_TYPES","PLACE_TYPES",
                                            "MACHINE_TYPES","WORKER_TYPES","PRODUCT_TYPES","VEGA_TYPES"};
-                NAMES = vegas.GetParams(Types[(int)_unit], "NAME");
-                if (NAMES.Count > 0)
+                vegas.GetParams(Types[(int)_unit], "NAME", Selected.Mode.Type);
+                
+                if (Selected.TYPES.Count > 0)
                 {
-                    foreach (List<string> s in NAMES) 
+                    foreach (List<string> s in Selected.TYPES) 
                     {
                         cbType.Items.Add(s[0]);
                         //Selected.TypeID = Convert.ToInt32(s[0]);
@@ -417,18 +400,12 @@ namespace Alfa_Vega
                 }
             }
         }
-        List<List<string>> NAMES = new List<List<string>>();
-
 
         /// <summary>
         /// İstenilen bağlılık tablosunun verilerini ekler.
         /// </summary>
         //private void GetOwner(Unit _unit)
         //{
-        //    /*
-        //     * Şimdilik temel olarak NAME çağırıyorum ancak değiştirilebilir. Zaten sıra bozulmadan çağırdığım için
-        //     * Aynı isim ID'yi de temsil ediyor.
-        //     */
         //    string[] Types = new string[] {"FACTORY_","DEPARTMENT_TYPES","PLACE_TYPES",
         //                                   "MACHINE_TYPES","WORKER_TYPES","PRODUCT_TYPES","VEGA_TYPES"};
         //    List<string> data = vegas.GetParams(Types[(int)_unit], "NAME");
@@ -440,23 +417,19 @@ namespace Alfa_Vega
         /// </summary>
         private void GetName(Unit _unit)
         {
-            /*
-             * Şimdilik temel olarak NAME çağırıyorum ancak değiştirilebilir. Zaten sıra bozulmadan çağırdığım için
-             * Aynı isim ID'yi de temsil ediyor.
-             */
             if (SelectedMode != Mode.Add)
             {
                 cbName.Items.Clear();
                 cbName.Text = "";
-                List<List<string>> data = vegas.GetParams(_unit.ToString(), "NAME");
-                if (data.Count > 0)
+                vegas.GetParams(_unit.ToString(), "NAME", Selected.Mode.Name);
+                if (Selected.NAMES.Count > 0)
                 {
-                    foreach (List<string> s in data)
+                    foreach (List<string> s in Selected.NAMES)
                     {
                         cbName.Items.Add(s[1]);
                         //Selected.NameID = Convert.ToInt32(s[0]);
                     }
-                    cbName.SelectedIndex = 0;
+                    //cbName.SelectedIndex = 0;
                     if (cbName.SelectedItem != null) tbName.Text = cbName.SelectedItem.ToString();
                 }
             }
@@ -468,10 +441,6 @@ namespace Alfa_Vega
         /// </summary>
         //private void RFID(Unit _unit)
         //{
-        //    /*
-        //     * Şimdilik temel olarak NAME çağırıyorum ancak değiştirilebilir. Zaten sıra bozulmadan çağırdığım için
-        //     * Aynı isim ID'yi de temsil ediyor.
-        //     */
         //    string[] Types = new string[] {"FACTORY_TYPES","DEPARTMENT_TYPES","PLACE_TYPES",
         //                                   "MACHINE_TYPES","WORKER_TYPES","PRODUCT_TYPES","VEGA_TYPES"};
         //    List<string> data = vegas.GetParams(Types[(int)_unit], "NAME");

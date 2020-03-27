@@ -143,23 +143,46 @@ namespace Alfa_Vega
         }
         
 
-        public List<List<string>> GetAll(string _table, string _column)
+        public void GetAll(string _table, string _column, Selected.Mode mode)
         {
-            List<List<string>> data = new List<List<string>>();
             string cmd = "SELECT ID, " +_column+" FROM " + _table;
             Connect();
             using (MySqlDataReader reader = new MySqlCommand(cmd, connection).ExecuteReader())
             {
-                while (reader.Read())
+                switch (mode)
                 {
-                    List<string> temp = new List<string>();
-                    temp.Add(reader.GetString(0));
-                    temp.Add(reader.GetString(1));
-                    data.Add(temp);
+                    case Selected.Mode.Name:
+                        while (reader.Read())
+                        {
+                            List<string> temp = new List<string>();
+                            temp.Add(reader.GetString(0));
+                            temp.Add(reader.GetString(1));
+                            Selected.NAMES.Add(temp);
+                        }
+                        break;
+
+                    case Selected.Mode.Type:
+                        while (reader.Read())
+                        {
+                            List<string> temp = new List<string>();
+                            temp.Add(reader.GetString(0));
+                            temp.Add(reader.GetString(1));
+                            Selected.TYPES.Add(temp);
+                        }
+                        break;
+
+                    case Selected.Mode.Owner:
+                        while (reader.Read())
+                        {
+                            List<string> temp = new List<string>();
+                            temp.Add(reader.GetString(0));
+                            temp.Add(reader.GetString(1));
+                            Selected.OWNER.Add(temp);
+                        }
+                        break;
                 }
             }
             Disconnect();
-            return data;
         }
 
         /// <summary>

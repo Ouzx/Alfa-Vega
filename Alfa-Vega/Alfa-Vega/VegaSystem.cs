@@ -94,17 +94,16 @@ namespace Alfa_Vega
         /// <summary>
         /// Veri tabanından istenilen sütunun verilerini çeker.
         /// </summary>
-        public List<List<string>> GetParams(string _table, string _parameter)
+        public void GetParams(string _table, string _parameter, Selected.Mode mode)
         {
             try 
             {
-                return GetAll(_table, _parameter);
+                GetAll(_table, _parameter,mode);
             }
             catch(Exception ex)
             {
                 MessageBox.Show("Lütfen Gerekli Alanları Doldurun ve İnternete Bağlı Olduğunuzdan emin olun! " + ex.ToString(),
                                                     "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
             }
         }
     }
