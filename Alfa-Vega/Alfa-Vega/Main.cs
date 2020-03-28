@@ -16,23 +16,13 @@ namespace Alfa_Vega
         {
             InitializeComponent();
         }
-        #region Menu
-
         
-        #region classes
-       
-        #endregion
-        #endregion
-
-
         /// <summary>
         /// Test butonu
         /// </summary>
         private void button1_Click(object sender, EventArgs e)
         {
-            DB dB = new DB();
-            if (dB.Connect()) MessageBox.Show("ads");
-            else MessageBox.Show("hata");
+           
            
             /*
             GroupBox gp;

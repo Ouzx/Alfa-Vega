@@ -48,8 +48,6 @@ namespace Alfa_Vega
         }
 
 
-
-
         /// <summary>
         /// Veri tabanına veri ekler.
         /// </summary>
@@ -214,6 +212,40 @@ namespace Alfa_Vega
             }
             
             Disconnect();
+        }
+
+        /// <summary>
+        /// Menü içeriklerini alır.
+        /// </summary>
+        public void GetMenus()
+        {
+            ClearMenus();
+            Connect();
+            for (int i = 0; i < 6; i++)
+            {
+                string cmd = "SELECT ID, NAME FROM " + ((Selected.Units)i).ToString();
+                using (MySqlDataReader reader = new MySqlCommand(cmd, connection).ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        List<string> temp = new List<string>();
+                        temp.Add(reader.GetString(0)); // ID
+                        temp.Add(reader.GetString(1)); // NAME
+                        Selected.Menu[i].Add(temp);
+                    }
+                }
+            }
+            Disconnect();
+        }
+        /// <summary>
+        /// Menü listelerini temizler.
+        /// </summary>
+        public void ClearMenus()
+        {
+            for(int i = 0; i < 6; i++)
+            {
+                Selected.Menu[i].Clear();
+            }
         }
 
         /// <summary>

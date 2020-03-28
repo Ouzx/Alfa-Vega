@@ -35,6 +35,8 @@ namespace Alfa_Vega
             Name,
             Owner
         }
+
+        
         
         /// <summary>
         /// cbName üzerinde listelencek olan Birimlerin isimleri.
@@ -63,7 +65,46 @@ namespace Alfa_Vega
         /// </summary>
         public static List<int> OwnerInt = new List<int>();
 
-          
+
+        /// <summary>
+        /// Ana menüde kullanılacak olan menüler.
+        /// </summary>
+        public enum Units
+        {
+            FACTORIES,
+            DEPARTMENTS,
+            PLACES,
+            MACHINES,
+            WORKERS,
+            VEGAS
+        }
+        /// <summary>
+        /// Ana ekranda listelencek olan menüler.
+        /// 6 ayrı liste var.
+        /// Sıra ve isimler Selected.Units enum ile aynı.
+        /// Örneğin Factories tablosundan 2 numaralı fabrikayı butona ekledik. Adına Ulaşmak için:
+        /// MenuID.x = 0; //Fabrika Tablosu adresi
+        /// MenuID.y = 2; //Fabrika Adresi
+        /// MenuID.z = 1; //Fabrika isim adresi.
+        /// ------------------------------------
+        /// | |ID|NAME|  |ID|NAME|  |ID|NAME|  |    FACTORIES
+        /// ------------------------------------
+        ///      0          1          2
+        /// </summary>
+        public static List<List<string>>[] Menu = new List<List<string>>[]
+        {   new List<List<string>>(), // FACTORIES
+            new List<List<string>>(), // DEPARTMENTS
+            new List<List<string>>(), // PLACES
+            new List<List<string>>(), // MACHINES
+            new List<List<string>>(), // WORKERS
+            new List<List<string>>(), // VEGAS
+        };
+        /// <summary>
+        /// Menü liselerinde gezinti için gerekli araç.
+        /// </summary>
+        public static Point3D MenuID = new Point3D(0,0,0);
+
+         
       
     }
 }

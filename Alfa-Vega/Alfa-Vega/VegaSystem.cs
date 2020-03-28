@@ -118,6 +118,19 @@ namespace Alfa_Vega
                                                     "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        public void GetMenu()
+        {
+            try
+            {
+                GetMenus();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lütfen İnternete Bağlı Olduğunuzdan emin olun! " + ex.ToString(),
+                                                    "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 
     /// <summary>
@@ -138,7 +151,7 @@ namespace Alfa_Vega
     class SideMenu : VegaSystem
     {
         /// <summary>
-        /// Menünün altındaki menüleir içerisinde barınıdırır.
+        /// Menünün altındaki menüleri içerisinde barınıdırır.
         /// </summary>
         public Panel panel { get; set; }
         /// <summary>
