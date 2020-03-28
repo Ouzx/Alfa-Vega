@@ -161,6 +161,7 @@
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(121, 29);
             this.cbType.TabIndex = 7;
+            this.cbType.SelectedValueChanged += new System.EventHandler(this.cbType_SelectedValueChanged);
             // 
             // label1
             // 
@@ -178,7 +179,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(213, 47);
+            this.label2.Location = new System.Drawing.Point(213, 48);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 21);
             this.label2.TabIndex = 10;
@@ -206,7 +207,7 @@
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(257, 44);
+            this.tbName.Location = new System.Drawing.Point(257, 45);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(127, 27);
             this.tbName.TabIndex = 13;
@@ -325,9 +326,9 @@
             // cbName
             // 
             this.cbName.FormattingEnabled = true;
-            this.cbName.Location = new System.Drawing.Point(68, 42);
+            this.cbName.Location = new System.Drawing.Point(54, 44);
             this.cbName.Name = "cbName";
-            this.cbName.Size = new System.Drawing.Size(107, 29);
+            this.cbName.Size = new System.Drawing.Size(135, 29);
             this.cbName.TabIndex = 14;
             this.cbName.SelectedValueChanged += new System.EventHandler(this.cbName_SelectedValueChanged);
             // 
@@ -336,7 +337,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label7.Location = new System.Drawing.Point(15, 47);
+            this.label7.Location = new System.Drawing.Point(9, 45);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(47, 21);
             this.label7.TabIndex = 8;

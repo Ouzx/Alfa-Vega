@@ -60,7 +60,7 @@ namespace Alfa_Vega
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = connection;
             cmd.CommandText = _cmd;
-            //cmd.Prepare();
+            cmd.Prepare();
             cmd.ExecuteNonQuery();
             Disconnect();
         }
@@ -115,9 +115,9 @@ namespace Alfa_Vega
             cmd.Transaction = tr;
             StringBuilder s = new StringBuilder();
             s.Append("UPDATE "+ _tablename + " SET ");
-            for(int i = 0; i < 3; i++)
+            for(int i = 1; i < schema.Rows.Count; i++)
             {
-                s.Append(schema.Rows[i + 1]["ColumnName"] + "=" + _data[i] + ",");
+                s.Append(schema.Rows[i]["ColumnName"] + "=" + _data[i-1] + ",");
             }
             s.Remove(s.Length - 1, 1);
             s.Append(" WHERE ID = " + _id);

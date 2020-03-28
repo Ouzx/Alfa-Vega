@@ -366,15 +366,14 @@ namespace Alfa_Vega
             List<string> data = vegas.Get(SelectedUnit.ToString(), Selected.NameID);
             if (data.Count > 0)
             {
-                //Eğer Type Combo box'ı patlarsa; 
-                //Owner combo box'ı ile aynı formata geçç.!!!
-                cbType.SelectedIndex = Convert.ToInt32(data[1]);
                 tbName.Text = data[2];
                 try
                 {
+                    cbType.SelectedIndex = Selected.TypeInt.IndexOf(Convert.ToInt32(data[1]));
+
                     cbOwner.SelectedIndex = Selected.OwnerInt.IndexOf(Convert.ToInt32(data[3]));
                 }
-                catch { }//cbOwner.SelectedIndex = Convert.ToInt32(data[3]);
+                catch { }
                 if (SelectedUnit == Unit.WORKERS)
                 {
                     workerRFID.Text = data[4];
@@ -544,20 +543,32 @@ namespace Alfa_Vega
                 MessageBox.Show("Bağlılık Bulunamadı! \n" +
                                 "Önce bir bağlılık oluşturun.\n" +
                                 "Detaylar için sistem yöneticinize başvurun.", "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Selected.NameID = 0;
+                Selected.OwnerID = 0;
             }
         }
 
-        /// <summary>
-        /// İstenilen RFID tablosunun verilerini  ekler.
-        /// </summary>
-        //private void RFID(Unit _unit)
-        //{
-        //    string[] Types = new string[] {"FACTORY_TYPES","DEPARTMENT_TYPES","PLACE_TYPES",
-        //                                   "MACHINE_TYPES","WORKER_TYPES","PRODUCT_TYPES","VEGA_TYPES"};
-        //    List<string> data = vegas.GetParams(Types[(int)_unit], "NAME");
-        //    foreach (string s in data) cbType.Items.Add(s);
-        //}
+        private void cbType_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cbType.Items.Count > 0)
+            {
+                if (cbType.SelectedIndex == -1)
+                {
+                    cbType.SelectedIndex = 0;
+                    Selected.TypeID = Selected.TypeInt[0];
+                }
+                else
+                {
+                    Selected.TypeID = Selected.TypeInt[cbType.SelectedIndex];
+                }
+            }
+            else
+            {
+                MessageBox.Show("Tip Bulunamadı! \n" +
+                                "Önce bir birim tipi oluşturun.\n" +
+                                "Detaylar için sistem yöneticinize başvurun.", "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Selected.TypeID = 0;
+            }
+        }
 
     }
 
