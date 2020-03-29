@@ -293,6 +293,16 @@ namespace Alfa_Vega.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_marker {
+            get {
+                object obj = ResourceManager.GetObject("icons8_marker", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_module {
             get {
                 object obj = ResourceManager.GetObject("icons8_module", resourceCulture);

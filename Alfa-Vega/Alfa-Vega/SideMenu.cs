@@ -26,19 +26,25 @@ namespace Alfa_Vega
     /// </summary>
     public class SideMenu
     {
+        /// <summary>
+        /// CREATE AS PARENT
+        /// </summary>
         public SideMenu(int _type, string _name, SideMenu _parent)
         {
             ParentMenu = _parent;
             ParentMenu.panel.Controls.Add(AddPanel());
-            //ExtendPanel();
-            ParentMenu.panel.Controls.Add(AddButton(_type, _name));
-            //Main.BaseMenu = this;
+            ParentMenu.panel.Controls.Add(AddParent(_type, _name));
         }
+
+        /// <summary>
+        /// CREATE AS SUB
+        /// </summary>
+        /// <param name="_id"></param>
         public SideMenu(Point3D _id)
         {
-            //ParentMenu.panel.Controls.Add(AddButton(_type, _name));
             ID = _id;
         }
+
         /// <summary>
         /// Base menü oluşturmak için.
         /// </summary>
@@ -46,6 +52,7 @@ namespace Alfa_Vega
         {
             panel = _panel;
         }
+
 
         /// <summary>
         /// Menünün altındaki menüleri içerisinde barınıdırır.
@@ -85,12 +92,12 @@ namespace Alfa_Vega
             panel.Visible = true;
             return panel;
         }
+
         /// <summary>
         /// Paneli istenilen ölçüde uzatır.
         /// </summary>
         public void ExtendPanel(Panel _panel)
         {
-            //ParentMenu.panel.Size += new Size(panel.Size.Width, panel.Size.Height + 45);
             _panel.Size += new Size(_panel.Size.Width, _panel.Size.Height + 45);
         }
         /// <summary>
@@ -99,7 +106,7 @@ namespace Alfa_Vega
         /// <param name="_type">Buton tipi</param>
         /// <param name="_text">Buton texti</param>
         /// <returns></returns>
-        public Button AddButton(int _type, string _text)
+        public Button AddSub(int _type, string _text, Control _control)
         {
             button = new Button();
 
@@ -109,39 +116,6 @@ namespace Alfa_Vega
             button.ForeColor = Color.White;
             switch (_type)
             {
-                //Mains
-                case 10: //Fabrika
-                    button.ImageAlign = ContentAlignment.MiddleLeft;
-                    button.Image = Properties.Resources.icons8_factory;
-                    button.Text = "Fabrikalar";
-                    break;
-                case 11: //Departman
-                    button.Padding = new Padding(20, 0, 0, 0);
-                    button.Image = Properties.Resources.icons8_module;
-                    button.Text = "Departmanlar";
-                    break;
-                case 12: //Mekan
-                    button.Padding = new Padding(60, 0, 0, 0);
-                    button.Image = Properties.Resources.icons8_place_marker_32px;
-                    button.Text = "Mekanlar";
-                    break;
-                case 13: //Makine
-                    button.Padding = new Padding(60, 0, 0, 0);
-                    button.Image = Properties.Resources.icons8_robot_1;
-                    button.Text = "Makineler";
-                    break;
-                case 14: //Çalışan
-                    button.Padding = new Padding(60, 0, 0, 0);
-                    button.Image = Properties.Resources.icons8_workers;
-                    button.Text = "Çalışanlar";
-                    break;
-                case 15: //VEGA
-                    button.Padding = new Padding(60, 0, 0, 0);
-                    button.Image = Properties.Resources.icons8_vegas;
-                    button.ForeColor = Color.MediumOrchid;
-                    button.Text = "VEGA";
-                    break;
-
                 //Subs
                 case 0: //Fabrika
                     button.Padding = new Padding(0, 0, 0, 0);
@@ -169,9 +143,64 @@ namespace Alfa_Vega
                     button.Image = Properties.Resources.icons8_raspberry;
                     button.ForeColor = Color.MediumOrchid;
                     break;
+                default: break;
+            }
 
-                default:
+            button.Font = new Font("Century Gothic", 11);
+            button.Location = new Point(0, 200);
+            button.Dock = DockStyle.Top;
+            button.FlatStyle = FlatStyle.Flat;
+            button.FlatAppearance.BorderSize = 0;
+            button.BackColor = Color.FromArgb(17, 24, 32);
+            button.Enabled = true;
+            button.Visible = true;
+            _control.Size += new Size(0, button.Height);
+            _control.Controls.Add(button);
+            return button;
+        }
+        public Button AddParent(int _type, string _text)
+        {
+            button = new Button();
+
+            button.Size = new Size(200, 45);
+            button.TextImageRelation = TextImageRelation.ImageBeforeText;
+            button.Text = _text;
+            button.ForeColor = Color.White;
+            switch (_type)
+            {
+                //Mains
+                case 10: //Fabrika
+                    button.ImageAlign = ContentAlignment.MiddleLeft;
+                    button.Image = Properties.Resources.icons8_factory;
+                    button.Text = "Fabrikalar";
                     break;
+                case 11: //Departman
+                    button.Padding = new Padding(20, 0, 0, 0);
+                    button.Image = Properties.Resources.icons8_module;
+                    button.Text = "Departmanlar";
+                    break;
+                case 12: //Mekan
+                    button.Padding = new Padding(60, 0, 0, 0);
+                    button.Image = Properties.Resources.icons8_marker;
+                    button.Text = "Mekanlar";
+                    break;
+                case 13: //Makine
+                    button.Padding = new Padding(60, 0, 0, 0);
+                    button.Image = Properties.Resources.icons8_robot_1;
+                    button.Text = "Makineler";
+                    break;
+                case 14: //Çalışan
+                    button.Padding = new Padding(60, 0, 0, 0);
+                    button.Image = Properties.Resources.icons8_workers;
+                    button.Text = "Çalışanlar";
+                    break;
+                case 15: //VEGA
+                    button.Padding = new Padding(60, 0, 0, 0);
+                    button.Image = Properties.Resources.icons8_vegas;
+                    button.ForeColor = Color.MediumOrchid;
+                    button.Text = "VEGA";
+                    break;
+                default: break;
             }
 
             button.Font = new Font("Century Gothic", 11);
