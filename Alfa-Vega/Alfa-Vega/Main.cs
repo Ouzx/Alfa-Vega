@@ -16,14 +16,18 @@ namespace Alfa_Vega
         {
             InitializeComponent();
         }
-        
+        private void Main_Load(object sender, EventArgs e)
+        {
+            BaseMenu = new SideMenu(panelBase);
+        }
+
         /// <summary>
         /// Test butonu
         /// </summary>
         private void button1_Click(object sender, EventArgs e)
         {
-           
-           
+
+            SetMenu();
             /*
             GroupBox gp;
             gp = AddGroupBox();
@@ -96,6 +100,42 @@ namespace Alfa_Vega
 
 
         }
+        VegaSystem vegas = new VegaSystem();
+        public static SideMenu BaseMenu;
+        private bool done = false;
+        public void SetMenu()
+        {
+            if (activeForm != null)
+            {
+                vegas.ClearMenu();
+                Selected.MenuID = new Point3D(0, 0, 0);
+            }
+
+
+            vegas.GetMenu(); //Verileri listelere ekler
+            if (!done)
+            {
+                for (int i = 5; i >= 0; i--)
+                {
+
+                    if (Selected.Menu[i].Count > 0)
+                    {
+                        //Parent
+                        Selected.Parents.Add(new SideMenu(i + 10, ((Selected.Units)i).ToString(), BaseMenu));
+                        //Selected.Parents[i].panel.Controls.Add()
+                        for (int j = Selected.Menu[i].Count-1; j >= 0; j--)
+                        {
+                            Point3D id = new Point3D(i, j, 0);
+                            SideMenu temp = new SideMenu(id);
+                            Selected.Parents[5 - i].panel.Controls.Add(temp.AddButton(i, Selected.Menu[i][j][1]));
+                            temp.ExtendPanel(Selected.Parents[5 - i].panel);
+                        }
+                    }
+                    else continue;
+                }
+                done = true;
+            }
+        }
 
         /// <summary>
         /// Settings formunu açan buton.
@@ -123,7 +163,7 @@ namespace Alfa_Vega
             _form.StartPosition = FormStartPosition.Manual;
             _form.Dock = DockStyle.None;
 
-            _form.Anchor = AnchorStyles.Top;
+            _form.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left;
 
             panelMain.Controls.Add(_form);
             panelMain.Tag = _form;
@@ -131,5 +171,7 @@ namespace Alfa_Vega
             _form.Show();
 
         }
+
+        
     }
 }

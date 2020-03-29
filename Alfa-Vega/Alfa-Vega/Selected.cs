@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Alfa_Vega
 {
@@ -103,8 +104,11 @@ namespace Alfa_Vega
         /// Menü liselerinde gezinti için gerekli araç.
         /// </summary>
         public static Point3D MenuID = new Point3D(0,0,0);
+        /// <summary>
+        /// Menü araçlarını ve metotlarını tutan liste.
+        /// </summary>
+        public static List<SideMenu> Parents = new List<SideMenu>();
 
-         
-      
+        
     }
 }

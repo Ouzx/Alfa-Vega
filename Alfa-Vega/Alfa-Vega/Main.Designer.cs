@@ -46,7 +46,7 @@
             // panelMenu
             // 
             this.panelMenu.AutoScroll = true;
-            this.panelMenu.BackColor = System.Drawing.Color.Transparent;
+            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(32)))));
             this.panelMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelMenu.Controls.Add(this.panelBase);
             this.panelMenu.Controls.Add(this.btnSettings);
@@ -54,16 +54,17 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(200, 561);
+            this.panelMenu.Size = new System.Drawing.Size(224, 561);
             this.panelMenu.TabIndex = 0;
             // 
             // panelBase
             // 
             this.panelBase.AutoScroll = true;
             this.panelBase.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelBase.Location = new System.Drawing.Point(0, 106);
+            this.panelBase.Location = new System.Drawing.Point(0, 86);
             this.panelBase.Name = "panelBase";
-            this.panelBase.Size = new System.Drawing.Size(200, 411);
+            this.panelBase.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
+            this.panelBase.Size = new System.Drawing.Size(224, 431);
             this.panelBase.TabIndex = 5;
             // 
             // btnSettings
@@ -75,7 +76,7 @@
             this.btnSettings.Image = global::Alfa_Vega.Properties.Resources.icons8_settings;
             this.btnSettings.Location = new System.Drawing.Point(0, 517);
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(200, 44);
+            this.btnSettings.Size = new System.Drawing.Size(224, 44);
             this.btnSettings.TabIndex = 1;
             this.btnSettings.Text = "Ayarlar";
             this.btnSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -84,56 +85,64 @@
             // 
             // panelLogo
             // 
-            this.panelLogo.BackgroundImage = global::Alfa_Vega.Properties.Resources.Banner;
+            this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(32)))));
             this.panelLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panelLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelLogo.Controls.Add(this.button1);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(200, 106);
+            this.panelLogo.Size = new System.Drawing.Size(224, 86);
             this.panelLogo.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(118, 76);
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(32)))));
+            this.button1.BackgroundImage = global::Alfa_Vega.Properties.Resources.Banner;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(0, 0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(224, 86);
             this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panelUpper
             // 
-            this.panelUpper.BackColor = System.Drawing.Color.Transparent;
+            this.panelUpper.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(32)))));
             this.panelUpper.Controls.Add(this.buttonUser);
             this.panelUpper.Controls.Add(this.buttonClock);
             this.panelUpper.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelUpper.Location = new System.Drawing.Point(200, 0);
+            this.panelUpper.Location = new System.Drawing.Point(224, 0);
             this.panelUpper.Name = "panelUpper";
-            this.panelUpper.Size = new System.Drawing.Size(1014, 48);
+            this.panelUpper.Size = new System.Drawing.Size(1020, 48);
             this.panelUpper.TabIndex = 1;
             // 
             // buttonUser
             // 
+            this.buttonUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(32)))));
             this.buttonUser.Dock = System.Windows.Forms.DockStyle.Right;
             this.buttonUser.FlatAppearance.BorderSize = 0;
             this.buttonUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUser.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.buttonUser.Image = global::Alfa_Vega.Properties.Resources.icons8_user;
             this.buttonUser.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonUser.Location = new System.Drawing.Point(638, 0);
+            this.buttonUser.Location = new System.Drawing.Point(644, 0);
             this.buttonUser.Name = "buttonUser";
             this.buttonUser.Size = new System.Drawing.Size(376, 48);
             this.buttonUser.TabIndex = 1;
             this.buttonUser.Text = "Administrator";
             this.buttonUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonUser.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.buttonUser.UseVisualStyleBackColor = true;
+            this.buttonUser.UseVisualStyleBackColor = false;
             // 
             // buttonClock
             // 
+            this.buttonClock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(32)))));
             this.buttonClock.Dock = System.Windows.Forms.DockStyle.Left;
             this.buttonClock.FlatAppearance.BorderSize = 0;
             this.buttonClock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -147,27 +156,28 @@
             this.buttonClock.Text = "Time";
             this.buttonClock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonClock.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonClock.UseVisualStyleBackColor = true;
+            this.buttonClock.UseVisualStyleBackColor = false;
             // 
             // panelMain
             // 
             this.panelMain.AutoScroll = true;
             this.panelMain.AutoScrollMargin = new System.Drawing.Size(20, 0);
             this.panelMain.BackColor = System.Drawing.Color.Transparent;
-            this.panelMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelMain.BackgroundImage = global::Alfa_Vega.Properties.Resources.Başlıksız_111;
+            this.panelMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(200, 48);
+            this.panelMain.Location = new System.Drawing.Point(224, 48);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1014, 513);
+            this.panelMain.Size = new System.Drawing.Size(1020, 513);
             this.panelMain.TabIndex = 2;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Alfa_Vega.Properties.Resources.Başlıksız_111;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1214, 561);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(32)))));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(1244, 561);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelUpper);
             this.Controls.Add(this.panelMenu);
@@ -180,6 +190,7 @@
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alfa-VEGA Modular SCADA Systems v1";
+            this.Load += new System.EventHandler(this.Main_Load);
             this.panelMenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
             this.panelUpper.ResumeLayout(false);
