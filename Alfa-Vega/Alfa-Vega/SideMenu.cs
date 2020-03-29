@@ -31,6 +31,7 @@ namespace Alfa_Vega
         /// </summary>
         public SideMenu(int _type, string _name, SideMenu _parent)
         {
+            isParent = true;
             ParentMenu = _parent;
             ParentMenu.panel.Controls.Add(AddPanel());
             ParentMenu.panel.Controls.Add(AddParent(_type, _name));
@@ -77,7 +78,7 @@ namespace Alfa_Vega
         /// Menünün temsil ettiği ID.
         /// </summary>
         public Point3D ID { get; set; }
-
+        
         /// <summary>
         /// Belirtilen ayarlarda panel oluşturur.
         /// </summary>
@@ -156,6 +157,7 @@ namespace Alfa_Vega
             button.Visible = true;
             _control.Size += new Size(0, button.Height);
             _control.Controls.Add(button);
+            button.Click += new EventHandler(button_Click);
             return button;
         }
         public Button AddParent(int _type, string _text)
@@ -211,7 +213,22 @@ namespace Alfa_Vega
             button.BackColor = Color.FromArgb(17, 24, 32);
             button.Enabled = true;
             button.Visible = true;
+            button.Click += new EventHandler(button_Click);
             return button;
+        }
+
+        public void button_Click(object sender, EventArgs e)
+        {
+            
+            if (isParent)
+            {
+
+                Hide();
+            }
+            else
+            {
+                Hide();
+            }
         }
 
         /// <summary>
@@ -220,7 +237,6 @@ namespace Alfa_Vega
         public void Hide()
         {
             panel.Visible = false;
-            button.Visible = false;
         }
         /// <summary>
         /// Menüyü açar
@@ -228,7 +244,6 @@ namespace Alfa_Vega
         public void Show()
         {
             panel.Visible = true;
-            button.Visible = true;
         }
 
     }

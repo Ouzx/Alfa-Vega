@@ -42,25 +42,23 @@ namespace Alfa_Vega
         public void SetMenu()
         {
             vegas.GetMenu(); //Verileri listelere ekler
-
-            for (int i = 5; i >= 0; i--)
-            {
-                if (Selected.Menu[i].Count > 0)
+                for (int i = 5; i >= 0; i--)
                 {
-                    //Parent
-                    Selected.Parents.Add(new SideMenu(i + 10, ((Selected.Units)i).ToString(), BaseMenu));
-
-                    for (int j = Selected.Menu[i].Count - 1; j >= 0; j--)
+                    if (Selected.Menu[i].Count > 0)
                     {
-                        Point3D id = new Point3D(i, j, 0);
-                        SideMenu temp = new SideMenu(id);
-                        temp.AddSub(i, Selected.Menu[i][j][1], Selected.Parents[5 - i].panel);
-                        //temp.ExtendPanel(Selected.Parents[5 - i].panel);
-                    }
-                }
-                else continue;
+                        //Parent
+                        Selected.Parents.Add(new SideMenu(i + 10, ((Selected.Units)i).ToString(), BaseMenu));
 
-            }
+                        for (int j = Selected.Menu[i].Count - 1; j >= 0; j--)
+                        {
+                            Point3D id = new Point3D(i, j, 0);
+                            SideMenu temp = new SideMenu(id);
+                            temp.AddSub(i, Selected.Menu[i][j][1], Selected.Parents[5 - i].panel);
+                        }
+                    }
+                    else continue;
+
+                }
         }
 
         /// <summary>
