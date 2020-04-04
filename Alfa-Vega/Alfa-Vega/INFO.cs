@@ -12,9 +12,21 @@ namespace Alfa_Vega
 {
     public partial class INFO : Form
     {
+        #region ctors
         public INFO()
         {
-            InitializeComponent();
+            InitializeComponent();   
+        }
+        public INFO(Selected.Units _unit)
+        {
+
+        }
+
+        #endregion
+
+
+        private void INFO_Load(object sender, EventArgs e)
+        {
             this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             BackColor = Color.Transparent;
         }

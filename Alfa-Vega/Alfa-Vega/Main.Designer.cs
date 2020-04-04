@@ -33,7 +33,7 @@
             this.panelBase = new System.Windows.Forms.Panel();
             this.btnSettings = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnMainMenu = new System.Windows.Forms.Button();
             this.panelUpper = new System.Windows.Forms.Panel();
             this.buttonUser = new System.Windows.Forms.Button();
             this.buttonClock = new System.Windows.Forms.Button();
@@ -54,17 +54,17 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(224, 561);
+            this.panelMenu.Size = new System.Drawing.Size(254, 561);
             this.panelMenu.TabIndex = 0;
             // 
             // panelBase
             // 
             this.panelBase.AutoScroll = true;
             this.panelBase.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelBase.Location = new System.Drawing.Point(0, 86);
+            this.panelBase.Location = new System.Drawing.Point(0, 114);
             this.panelBase.Name = "panelBase";
             this.panelBase.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.panelBase.Size = new System.Drawing.Size(224, 431);
+            this.panelBase.Size = new System.Drawing.Size(254, 403);
             this.panelBase.TabIndex = 5;
             // 
             // btnSettings
@@ -76,7 +76,7 @@
             this.btnSettings.Image = global::Alfa_Vega.Properties.Resources.icons8_settings;
             this.btnSettings.Location = new System.Drawing.Point(0, 517);
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(224, 44);
+            this.btnSettings.Size = new System.Drawing.Size(254, 44);
             this.btnSettings.TabIndex = 1;
             this.btnSettings.Text = "Ayarlar";
             this.btnSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -87,30 +87,29 @@
             // 
             this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(32)))));
             this.panelLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panelLogo.Controls.Add(this.button1);
+            this.panelLogo.Controls.Add(this.btnMainMenu);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(224, 86);
+            this.panelLogo.Size = new System.Drawing.Size(254, 114);
             this.panelLogo.TabIndex = 0;
             // 
-            // button1
+            // btnMainMenu
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(32)))));
-            this.button1.BackgroundImage = global::Alfa_Vega.Properties.Resources.Banner;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(224, 86);
-            this.button1.TabIndex = 1;
-            this.button1.Text = ",";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnMainMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(32)))));
+            this.btnMainMenu.BackgroundImage = global::Alfa_Vega.Properties.Resources.Banner;
+            this.btnMainMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMainMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMainMenu.FlatAppearance.BorderSize = 0;
+            this.btnMainMenu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnMainMenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnMainMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMainMenu.Location = new System.Drawing.Point(0, 0);
+            this.btnMainMenu.Name = "btnMainMenu";
+            this.btnMainMenu.Size = new System.Drawing.Size(254, 111);
+            this.btnMainMenu.TabIndex = 1;
+            this.btnMainMenu.UseVisualStyleBackColor = false;
+            this.btnMainMenu.Click += new System.EventHandler(this.btnMainMenu_Click);
             // 
             // panelUpper
             // 
@@ -118,9 +117,9 @@
             this.panelUpper.Controls.Add(this.buttonUser);
             this.panelUpper.Controls.Add(this.buttonClock);
             this.panelUpper.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelUpper.Location = new System.Drawing.Point(224, 0);
+            this.panelUpper.Location = new System.Drawing.Point(254, 0);
             this.panelUpper.Name = "panelUpper";
-            this.panelUpper.Size = new System.Drawing.Size(1020, 48);
+            this.panelUpper.Size = new System.Drawing.Size(990, 48);
             this.panelUpper.TabIndex = 1;
             // 
             // buttonUser
@@ -132,7 +131,7 @@
             this.buttonUser.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.buttonUser.Image = global::Alfa_Vega.Properties.Resources.icons8_user;
             this.buttonUser.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonUser.Location = new System.Drawing.Point(644, 0);
+            this.buttonUser.Location = new System.Drawing.Point(614, 0);
             this.buttonUser.Name = "buttonUser";
             this.buttonUser.Size = new System.Drawing.Size(376, 48);
             this.buttonUser.TabIndex = 1;
@@ -167,9 +166,9 @@
             this.panelMain.BackgroundImage = global::Alfa_Vega.Properties.Resources.Başlıksız_111;
             this.panelMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(224, 48);
+            this.panelMain.Location = new System.Drawing.Point(254, 48);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1020, 513);
+            this.panelMain.Size = new System.Drawing.Size(990, 513);
             this.panelMain.TabIndex = 2;
             // 
             // Main
@@ -208,7 +207,7 @@
         private System.Windows.Forms.Button buttonClock;
         private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.Panel panelBase;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnMainMenu;
         private System.Windows.Forms.Button btnSettings;
     }
 }

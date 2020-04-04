@@ -19,7 +19,7 @@ namespace Alfa_Vega
         {
             Splash s = new Splash();
             s.Show();
-            //System.Threading.Thread.Sleep(1000);
+            if(done)System.Threading.Thread.Sleep(1000);
             s.Close();
             InitializeComponent();
             ControlExtension.Draggable(this, true);
@@ -57,10 +57,11 @@ namespace Alfa_Vega
         /// </summary>
         private void btn_login_Click(object sender, EventArgs e)
         {
-            if (cb_remember.Checked)
+            DB dB = new DB();
+            if (dB.CheckUser(textBox1.Text,textBox2.Text))
             {
 
-                Hide();
+                Hidee();
 
             }
             else MessageBox.Show("Yanlış şifre veya kullanıcı adı girdiniz!","HATA!" ,MessageBoxButtons.OK, MessageBoxIcon.Error);

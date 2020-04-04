@@ -12,54 +12,75 @@ namespace Alfa_Vega
 {
     public partial class Main : Form
     {
+        public static Panel pnl = null;
         public Main()
         {
             InitializeComponent();
         }
         private void Main_Load(object sender, EventArgs e)
         {
-            BaseMenu = new SideMenu(panelBase);
+            pnl = panelMain;
             SetMenu();
         }
 
-        /// <summary>
-        /// Anasayfa butonu
-        /// </summary>
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (activeForm != null)
-            {
-                activeForm.Close();
-                activeForm = null;
-                vegas.ClearMenu();
-                Selected.MenuID = new Point3D(0, 0, 0);
-            }
-
-        }
-
         VegaSystem vegas = new VegaSystem();
-        public static SideMenu BaseMenu;
+        
         public void SetMenu()
         {
-            vegas.GetMenu(); //Verileri listelere ekler
-                for (int i = 5; i >= 0; i--)
+            vegas.GetMenu();
+            //int Total = GetLength();
+            SideMenu Factories = new SideMenu(panelBase, "-1", "-1", "-1", Selected.Units.FACTORIES, true);
+            SideMenu Departments;
+            SideMenu SubDepartments = new SideMenu();
+
+            SideMenu SubMenu;
+            SideMenu SubSubMenu;
+            for (int i = Selected.Menu[0].Count - 1; i >= 0; i--)
+            {
+                SideMenu SubFactories = new SideMenu(Factories.panel, Selected.Menu[0][i][0], Selected.Menu[0][i][1], Selected.Menu[0][i][2], Selected.Units.FACTORIES, false);
+                if (Selected.Menu[1].Count > 0)
                 {
-                    if (Selected.Menu[i].Count > 0)
+                    Departments = new SideMenu(SubFactories.panel, "-1", "-1", "-1", Selected.Units.DEPARTMENTS, true);
+                    for (int j = Selected.Menu[1].Count - 1; j >= 0; j--)
                     {
-                        //Parent
-                        Selected.Parents.Add(new SideMenu(i + 10, ((Selected.Units)i).ToString(), BaseMenu));
-
-                        for (int j = Selected.Menu[i].Count - 1; j >= 0; j--)
+                        if (Selected.Menu[1][j][2] == SubFactories.ID)
+                            SubDepartments = new SideMenu(Departments.panel, Selected.Menu[1][j][0], Selected.Menu[1][j][1], Selected.Menu[1][j][2], Selected.Units.DEPARTMENTS, false);
+                        if (SubDepartments.panel != null)
                         {
-                            Point3D id = new Point3D(i, j, 0);
-                            SideMenu temp = new SideMenu(id);
-                            temp.AddSub(i, Selected.Menu[i][j][1], Selected.Parents[5 - i].panel);
+                            for (int k = 2; k < 5; k++)
+                            {
+                                if (Selected.Menu[k].Count > 0)
+                                {
+                                    SubMenu = new SideMenu(SubDepartments.panel, "-1", "-1", "-1", (Selected.Units)k, true);
+                                    for (int l = Selected.Menu[k].Count - 1; l >= 0; l--)
+                                    {
+                                        if (Selected.Menu[k][l][2] == SubDepartments.ID)
+                                        {
+                                            SubSubMenu = new SideMenu(SubMenu.panel, Selected.Menu[k][j][0], Selected.Menu[k][j][1], Selected.Menu[k][j][2], (Selected.Units)k, false);
+                                        }
+                                    }
+                                    if (SubMenu.panel.Controls.Count == 0)
+                                    {
+                                        SubDepartments.panel.Controls.Remove(SubMenu.panel);
+                                        SubDepartments.panel.Controls.Remove(SubMenu.button);
+                                    }
+                                }
+                            }
                         }
-                    }
-                    else continue;
 
+                    }
+                    
+                    //Cleaner
+                    if (Departments.panel.Controls.Count == 0)
+                    {
+                        Factories.panel.Controls.Remove(SubFactories.panel);
+                    }
+                    
                 }
+            }
+            
         }
+        
 
         /// <summary>
         /// Settings formunu açan buton.
@@ -67,35 +88,14 @@ namespace Alfa_Vega
         private void btnSettings_Click(object sender, EventArgs e)
         {
             Settings _form = new Settings();
-            OpenForm(_form);
+            OpenForm.OpnForm(_form);
         }
 
-        /// <summary>
-        /// Ana paneli hangi formun kullandığınu tutar.
-        /// </summary>
-        private Form activeForm = null;
-        /// <summary>
-        /// Ana panel üzerinde form açmak için kullanılır.
-        /// </summary>
-        /// <param name="_form">Açılacak form</param>
-        private void OpenForm(Form _form)
+        private void btnMainMenu_Click(object sender, EventArgs e)
         {
-            if (activeForm != null) activeForm.Close();
-            activeForm = _form;
-            _form.TopLevel = false;
-            _form.FormBorderStyle = FormBorderStyle.None;
-            _form.StartPosition = FormStartPosition.Manual;
-            _form.Dock = DockStyle.None;
-
-            _form.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left;
-
-            panelMain.Controls.Add(_form);
-            panelMain.Tag = _form;
-            _form.BringToFront();
-            _form.Show();
-
+            panelBase.Controls.Clear();
+            foreach (var v in Selected.Menu) v.Clear();
+            SetMenu();
         }
-
-        
     }
 }

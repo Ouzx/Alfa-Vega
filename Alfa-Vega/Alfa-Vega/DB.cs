@@ -221,9 +221,32 @@ namespace Alfa_Vega
         {
             ClearMenus();
             Connect();
+            string empty = "";
             for (int i = 0; i < 6; i++)
             {
-                string cmd = "SELECT ID, NAME FROM " + ((Selected.Units)i).ToString();
+                switch ((Selected.Units)i)
+                {
+                    case Selected.Units.FACTORIES:
+                        empty = "OWNER_ID";
+                        break;
+                    case Selected.Units.DEPARTMENTS:
+                        empty = "FACTORY_ID";
+                        break;
+                    case Selected.Units.PLACES:
+                        empty = "DEPARTMANT_ID";
+                        break;
+                    case Selected.Units.MACHINES:
+                        empty = "DEPARTMANT_ID";
+                        break;
+                    case Selected.Units.WORKERS:
+                        empty = "DEPARTMANT_ID";
+                        break;
+                    case Selected.Units.VEGAS:
+                        empty = "OWNER_ID";
+                        break;
+                }
+
+                string cmd = "SELECT ID, NAME, "+empty+" FROM " + ((Selected.Units)i).ToString();
                 using (MySqlDataReader reader = new MySqlCommand(cmd, connection).ExecuteReader())
                 {
                     while (reader.Read())
@@ -231,6 +254,7 @@ namespace Alfa_Vega
                         List<string> temp = new List<string>();
                         temp.Add(reader.GetString(0)); // ID
                         temp.Add(reader.GetString(1)); // NAME
+                        temp.Add(reader.GetString(2)); //OWNER ID
                         Selected.Menu[i].Add(temp);
                     }
                 }
@@ -286,6 +310,26 @@ namespace Alfa_Vega
         public void GetClock()
         {
 
+        }
+
+        public bool CheckUser(string _name, string _password)
+        {
+            string sql = "SELECT * FROM USERS";
+            bool Granted = false;
+            Connect();
+            using (MySqlDataReader reader = new MySqlCommand(sql, connection).ExecuteReader())
+            {
+                while(reader.Read())
+                {
+                    
+                    if (_name.ToLower() == reader.GetString(1).ToLower())
+                        if (_password == reader.GetString(2))
+                            Granted = true;
+                            
+                   //System.Windows.Forms.MessageBox.Show(reader.GetString(1) + "\n" + reader.GetString(0));
+                }
+            }
+            return Granted;
         }
         
     }

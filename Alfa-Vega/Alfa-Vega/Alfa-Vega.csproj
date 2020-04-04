@@ -81,6 +81,8 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="OpenForm.cs" />
+    <Compile Include="SideMenu.cs" />
     <Compile Include="Point3D.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -91,7 +93,6 @@
     <Compile Include="Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
-    <Compile Include="SideMenu.cs" />
     <Compile Include="Splash.cs">
       <SubType>Form</SubType>
     </Compile>
