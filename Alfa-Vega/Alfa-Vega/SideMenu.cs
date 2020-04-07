@@ -192,7 +192,7 @@ namespace Alfa_Vega
             }
             if (!isParent)
             {
-                OpenForm.OpnForm(_form: new INFO());
+                OpenForm.OpnForm(new INFO());
             }
         }
 

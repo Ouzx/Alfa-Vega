@@ -19,7 +19,7 @@ namespace Alfa_Vega
             _form.StartPosition = FormStartPosition.Manual;
             _form.Dock = DockStyle.None;
 
-            _form.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left;
+            _form.Anchor = AnchorStyles.Top;
 
             Main.pnl.Controls.Add(_form);
             Main.pnl.Tag = _form;

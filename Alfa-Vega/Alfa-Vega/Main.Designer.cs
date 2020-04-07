@@ -157,6 +157,7 @@
             this.buttonClock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonClock.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonClock.UseVisualStyleBackColor = false;
+            this.buttonClock.Click += new System.EventHandler(this.buttonClock_Click);
             // 
             // panelMain
             // 

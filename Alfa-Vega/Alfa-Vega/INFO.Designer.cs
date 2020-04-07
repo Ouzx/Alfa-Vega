@@ -33,24 +33,12 @@
             this.labelIsWorking = new System.Windows.Forms.Label();
             this.labelTimer = new System.Windows.Forms.Label();
             this.labelTime = new System.Windows.Forms.Label();
-            this.pbTimer = new System.Windows.Forms.PictureBox();
-            this.pbIsWorking = new System.Windows.Forms.PictureBox();
-            this.pbprofile = new System.Windows.Forms.PictureBox();
-            this.pbTotal = new System.Windows.Forms.PictureBox();
             this.labelTotal = new System.Windows.Forms.Label();
-            this.pbPass = new System.Windows.Forms.PictureBox();
             this.labelPass = new System.Windows.Forms.Label();
-            this.pbBad = new System.Windows.Forms.PictureBox();
             this.labelBad = new System.Windows.Forms.Label();
-            this.pbSplitterr = new System.Windows.Forms.PictureBox();
-            this.pbParam1 = new System.Windows.Forms.PictureBox();
             this.labelParam1 = new System.Windows.Forms.Label();
-            this.pbParam2 = new System.Windows.Forms.PictureBox();
             this.labelParam2 = new System.Windows.Forms.Label();
-            this.pbParam3 = new System.Windows.Forms.PictureBox();
             this.labelParam3 = new System.Windows.Forms.Label();
-            this.pbSplitter = new System.Windows.Forms.PictureBox();
-            this.pbSpliterrr = new System.Windows.Forms.PictureBox();
             this.pgbTotal = new Bunifu.Framework.UI.BunifuProgressBar();
             this.pgbPass = new Bunifu.Framework.UI.BunifuProgressBar();
             this.pgbBad = new Bunifu.Framework.UI.BunifuProgressBar();
@@ -58,28 +46,43 @@
             this.pgbParam2 = new Bunifu.Framework.UI.BunifuProgressBar();
             this.pgbParam3 = new Bunifu.Framework.UI.BunifuProgressBar();
             this.labelParam4 = new System.Windows.Forms.Label();
-            this.pbParam4 = new System.Windows.Forms.PictureBox();
             this.pgbParam4 = new Bunifu.Framework.UI.BunifuProgressBar();
-            this.buttonUser = new Bunifu.Framework.UI.BunifuTileButton();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuSeparator2 = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuSeparator3 = new Bunifu.Framework.UI.BunifuSeparator();
             this.graph = new Bunifu.DataViz.WinForms.BunifuDataViz();
             this.panel1 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTimer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbIsWorking)).BeginInit();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.bunifuSeparator4 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.bunifuSeparator5 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.pbprofile = new System.Windows.Forms.PictureBox();
+            this.pbIsWorking = new System.Windows.Forms.PictureBox();
+            this.buttonUser = new Bunifu.Framework.UI.BunifuTileButton();
+            this.pbTimer = new System.Windows.Forms.PictureBox();
+            this.pbParam4 = new System.Windows.Forms.PictureBox();
+            this.pbTotal = new System.Windows.Forms.PictureBox();
+            this.pbPass = new System.Windows.Forms.PictureBox();
+            this.pbBad = new System.Windows.Forms.PictureBox();
+            this.pbSpliterrr = new System.Windows.Forms.PictureBox();
+            this.pbSplitterr = new System.Windows.Forms.PictureBox();
+            this.pbSplitter = new System.Windows.Forms.PictureBox();
+            this.pbParam1 = new System.Windows.Forms.PictureBox();
+            this.pbParam3 = new System.Windows.Forms.PictureBox();
+            this.pbParam2 = new System.Windows.Forms.PictureBox();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbprofile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbIsWorking)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTimer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbParam4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTotal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBad)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSplitterr)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbParam1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbParam2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbParam3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSplitter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSpliterrr)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbParam4)).BeginInit();
-            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSplitterr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSplitter)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbParam1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbParam3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbParam2)).BeginInit();
             this.SuspendLayout();
             // 
             // labelProfile
@@ -105,125 +108,52 @@
             // labelTimer
             // 
             this.labelTimer.AutoSize = true;
-            this.labelTimer.Location = new System.Drawing.Point(617, 20);
+            this.labelTimer.Location = new System.Drawing.Point(585, 19);
             this.labelTimer.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelTimer.Name = "labelTimer";
-            this.labelTimer.Size = new System.Drawing.Size(55, 21);
+            this.labelTimer.Size = new System.Drawing.Size(138, 21);
             this.labelTimer.TabIndex = 5;
-            this.labelTimer.Text = "Timer:";
+            this.labelTimer.Text = "Çalışma Zamanı:";
             // 
             // labelTime
             // 
             this.labelTime.AutoSize = true;
-            this.labelTime.Location = new System.Drawing.Point(678, 20);
+            this.labelTime.Location = new System.Drawing.Point(728, 19);
             this.labelTime.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelTime.Name = "labelTime";
             this.labelTime.Size = new System.Drawing.Size(46, 21);
             this.labelTime.TabIndex = 6;
             this.labelTime.Text = "Time";
             // 
-            // pbTimer
-            // 
-            this.pbTimer.Location = new System.Drawing.Point(572, 13);
-            this.pbTimer.Margin = new System.Windows.Forms.Padding(5);
-            this.pbTimer.Name = "pbTimer";
-            this.pbTimer.Size = new System.Drawing.Size(35, 35);
-            this.pbTimer.TabIndex = 4;
-            this.pbTimer.TabStop = false;
-            // 
-            // pbIsWorking
-            // 
-            this.pbIsWorking.Location = new System.Drawing.Point(351, 13);
-            this.pbIsWorking.Margin = new System.Windows.Forms.Padding(5);
-            this.pbIsWorking.Name = "pbIsWorking";
-            this.pbIsWorking.Size = new System.Drawing.Size(35, 35);
-            this.pbIsWorking.TabIndex = 2;
-            this.pbIsWorking.TabStop = false;
-            // 
-            // pbprofile
-            // 
-            this.pbprofile.Location = new System.Drawing.Point(169, 13);
-            this.pbprofile.Margin = new System.Windows.Forms.Padding(5);
-            this.pbprofile.Name = "pbprofile";
-            this.pbprofile.Size = new System.Drawing.Size(35, 35);
-            this.pbprofile.TabIndex = 0;
-            this.pbprofile.TabStop = false;
-            // 
-            // pbTotal
-            // 
-            this.pbTotal.Location = new System.Drawing.Point(195, 82);
-            this.pbTotal.Margin = new System.Windows.Forms.Padding(5);
-            this.pbTotal.Name = "pbTotal";
-            this.pbTotal.Size = new System.Drawing.Size(35, 35);
-            this.pbTotal.TabIndex = 9;
-            this.pbTotal.TabStop = false;
-            // 
             // labelTotal
             // 
             this.labelTotal.AutoSize = true;
-            this.labelTotal.Location = new System.Drawing.Point(240, 89);
+            this.labelTotal.Location = new System.Drawing.Point(225, 89);
             this.labelTotal.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelTotal.Name = "labelTotal";
-            this.labelTotal.Size = new System.Drawing.Size(57, 21);
+            this.labelTotal.Size = new System.Drawing.Size(72, 21);
             this.labelTotal.TabIndex = 10;
-            this.labelTotal.Text = "Total: ";
-            // 
-            // pbPass
-            // 
-            this.pbPass.Location = new System.Drawing.Point(195, 127);
-            this.pbPass.Margin = new System.Windows.Forms.Padding(5);
-            this.pbPass.Name = "pbPass";
-            this.pbPass.Size = new System.Drawing.Size(35, 35);
-            this.pbPass.TabIndex = 12;
-            this.pbPass.TabStop = false;
+            this.labelTotal.Text = "Toplam:";
             // 
             // labelPass
             // 
             this.labelPass.AutoSize = true;
-            this.labelPass.Location = new System.Drawing.Point(240, 134);
+            this.labelPass.Location = new System.Drawing.Point(225, 134);
             this.labelPass.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelPass.Name = "labelPass";
-            this.labelPass.Size = new System.Drawing.Size(50, 21);
+            this.labelPass.Size = new System.Drawing.Size(63, 21);
             this.labelPass.TabIndex = 13;
-            this.labelPass.Text = "Pass: ";
-            // 
-            // pbBad
-            // 
-            this.pbBad.Location = new System.Drawing.Point(195, 172);
-            this.pbBad.Margin = new System.Windows.Forms.Padding(5);
-            this.pbBad.Name = "pbBad";
-            this.pbBad.Size = new System.Drawing.Size(35, 35);
-            this.pbBad.TabIndex = 15;
-            this.pbBad.TabStop = false;
+            this.labelPass.Text = "Onaylı:";
             // 
             // labelBad
             // 
             this.labelBad.AutoSize = true;
-            this.labelBad.Location = new System.Drawing.Point(240, 179);
+            this.labelBad.Location = new System.Drawing.Point(225, 179);
             this.labelBad.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelBad.Name = "labelBad";
-            this.labelBad.Size = new System.Drawing.Size(45, 21);
+            this.labelBad.Size = new System.Drawing.Size(60, 21);
             this.labelBad.TabIndex = 16;
-            this.labelBad.Text = "Bad:";
-            // 
-            // pbSplitterr
-            // 
-            this.pbSplitterr.BackgroundImage = global::Alfa_Vega.Properties.Resources.Splitterr;
-            this.pbSplitterr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pbSplitterr.Location = new System.Drawing.Point(3, 212);
-            this.pbSplitterr.Name = "pbSplitterr";
-            this.pbSplitterr.Size = new System.Drawing.Size(923, 16);
-            this.pbSplitterr.TabIndex = 18;
-            this.pbSplitterr.TabStop = false;
-            // 
-            // pbParam1
-            // 
-            this.pbParam1.Location = new System.Drawing.Point(3, 248);
-            this.pbParam1.Margin = new System.Windows.Forms.Padding(5);
-            this.pbParam1.Name = "pbParam1";
-            this.pbParam1.Size = new System.Drawing.Size(35, 35);
-            this.pbParam1.TabIndex = 19;
-            this.pbParam1.TabStop = false;
+            this.labelBad.Text = "Hatalı:";
             // 
             // labelParam1
             // 
@@ -231,37 +161,20 @@
             this.labelParam1.Location = new System.Drawing.Point(39, 255);
             this.labelParam1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelParam1.Name = "labelParam1";
-            this.labelParam1.Size = new System.Drawing.Size(70, 21);
+            this.labelParam1.Size = new System.Drawing.Size(64, 21);
             this.labelParam1.TabIndex = 20;
-            this.labelParam1.Text = "Param1";
-            // 
-            // pbParam2
-            // 
-            this.pbParam2.Location = new System.Drawing.Point(238, 248);
-            this.pbParam2.Margin = new System.Windows.Forms.Padding(5);
-            this.pbParam2.Name = "pbParam2";
-            this.pbParam2.Size = new System.Drawing.Size(35, 35);
-            this.pbParam2.TabIndex = 22;
-            this.pbParam2.TabStop = false;
+            this.labelParam1.Text = "Sıcaklık";
             // 
             // labelParam2
             // 
             this.labelParam2.AutoSize = true;
-            this.labelParam2.Location = new System.Drawing.Point(273, 255);
+            this.labelParam2.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.labelParam2.Location = new System.Drawing.Point(263, 255);
             this.labelParam2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelParam2.Name = "labelParam2";
-            this.labelParam2.Size = new System.Drawing.Size(70, 21);
+            this.labelParam2.Size = new System.Drawing.Size(102, 20);
             this.labelParam2.TabIndex = 23;
-            this.labelParam2.Text = "Param2";
-            // 
-            // pbParam3
-            // 
-            this.pbParam3.Location = new System.Drawing.Point(487, 248);
-            this.pbParam3.Margin = new System.Windows.Forms.Padding(5);
-            this.pbParam3.Name = "pbParam3";
-            this.pbParam3.Size = new System.Drawing.Size(35, 35);
-            this.pbParam3.TabIndex = 25;
-            this.pbParam3.TabStop = false;
+            this.labelParam2.Text = "Hava Kalitesi";
             // 
             // labelParam3
             // 
@@ -269,29 +182,9 @@
             this.labelParam3.Location = new System.Drawing.Point(522, 255);
             this.labelParam3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelParam3.Name = "labelParam3";
-            this.labelParam3.Size = new System.Drawing.Size(70, 21);
+            this.labelParam3.Size = new System.Drawing.Size(59, 21);
             this.labelParam3.TabIndex = 26;
-            this.labelParam3.Text = "Param3";
-            // 
-            // pbSplitter
-            // 
-            this.pbSplitter.BackgroundImage = global::Alfa_Vega.Properties.Resources.Splitterr;
-            this.pbSplitter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pbSplitter.Location = new System.Drawing.Point(3, 55);
-            this.pbSplitter.Name = "pbSplitter";
-            this.pbSplitter.Size = new System.Drawing.Size(923, 16);
-            this.pbSplitter.TabIndex = 28;
-            this.pbSplitter.TabStop = false;
-            // 
-            // pbSpliterrr
-            // 
-            this.pbSpliterrr.BackgroundImage = global::Alfa_Vega.Properties.Resources.Splitterr;
-            this.pbSpliterrr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pbSpliterrr.Location = new System.Drawing.Point(3, 291);
-            this.pbSpliterrr.Name = "pbSpliterrr";
-            this.pbSpliterrr.Size = new System.Drawing.Size(923, 16);
-            this.pbSpliterrr.TabIndex = 29;
-            this.pbSpliterrr.TabStop = false;
+            this.labelParam3.Text = "Basınç";
             // 
             // pgbTotal
             // 
@@ -310,7 +203,7 @@
             // 
             this.pgbPass.BackColor = System.Drawing.Color.Silver;
             this.pgbPass.BorderRadius = 10;
-            this.pgbPass.Location = new System.Drawing.Point(307, 140);
+            this.pgbPass.Location = new System.Drawing.Point(307, 141);
             this.pgbPass.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.pgbPass.MaximumValue = 100;
             this.pgbPass.Name = "pgbPass";
@@ -349,7 +242,7 @@
             // 
             this.pgbParam2.BackColor = System.Drawing.Color.Silver;
             this.pgbParam2.BorderRadius = 10;
-            this.pgbParam2.Location = new System.Drawing.Point(356, 252);
+            this.pgbParam2.Location = new System.Drawing.Point(368, 252);
             this.pgbParam2.Margin = new System.Windows.Forms.Padding(13, 13, 13, 13);
             this.pgbParam2.MaximumValue = 100;
             this.pgbParam2.Name = "pgbParam2";
@@ -362,7 +255,7 @@
             // 
             this.pgbParam3.BackColor = System.Drawing.Color.Silver;
             this.pgbParam3.BorderRadius = 10;
-            this.pgbParam3.Location = new System.Drawing.Point(598, 252);
+            this.pgbParam3.Location = new System.Drawing.Point(592, 252);
             this.pgbParam3.Margin = new System.Windows.Forms.Padding(13, 13, 13, 13);
             this.pgbParam3.MaximumValue = 100;
             this.pgbParam3.Name = "pgbParam3";
@@ -377,24 +270,15 @@
             this.labelParam4.Location = new System.Drawing.Point(760, 255);
             this.labelParam4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelParam4.Name = "labelParam4";
-            this.labelParam4.Size = new System.Drawing.Size(70, 21);
+            this.labelParam4.Size = new System.Drawing.Size(49, 21);
             this.labelParam4.TabIndex = 38;
-            this.labelParam4.Text = "Param4";
-            // 
-            // pbParam4
-            // 
-            this.pbParam4.Location = new System.Drawing.Point(725, 248);
-            this.pbParam4.Margin = new System.Windows.Forms.Padding(5);
-            this.pbParam4.Name = "pbParam4";
-            this.pbParam4.Size = new System.Drawing.Size(35, 35);
-            this.pbParam4.TabIndex = 37;
-            this.pbParam4.TabStop = false;
+            this.labelParam4.Text = "Akım";
             // 
             // pgbParam4
             // 
             this.pgbParam4.BackColor = System.Drawing.Color.Silver;
             this.pgbParam4.BorderRadius = 10;
-            this.pgbParam4.Location = new System.Drawing.Point(837, 252);
+            this.pgbParam4.Location = new System.Drawing.Point(812, 252);
             this.pgbParam4.Margin = new System.Windows.Forms.Padding(13, 13, 13, 13);
             this.pgbParam4.MaximumValue = 100;
             this.pgbParam4.Name = "pgbParam4";
@@ -403,31 +287,12 @@
             this.pgbParam4.TabIndex = 39;
             this.pgbParam4.Value = 25;
             // 
-            // buttonUser
-            // 
-            this.buttonUser.BackColor = System.Drawing.Color.Transparent;
-            this.buttonUser.color = System.Drawing.Color.Transparent;
-            this.buttonUser.colorActive = System.Drawing.Color.Transparent;
-            this.buttonUser.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonUser.Font = new System.Drawing.Font("Century Gothic", 15.75F);
-            this.buttonUser.ForeColor = System.Drawing.Color.White;
-            this.buttonUser.Image = ((System.Drawing.Image)(resources.GetObject("buttonUser.Image")));
-            this.buttonUser.ImagePosition = 20;
-            this.buttonUser.ImageZoom = 50;
-            this.buttonUser.LabelPosition = 41;
-            this.buttonUser.LabelText = "Worker";
-            this.buttonUser.Location = new System.Drawing.Point(824, 14);
-            this.buttonUser.Margin = new System.Windows.Forms.Padding(6);
-            this.buttonUser.Name = "buttonUser";
-            this.buttonUser.Size = new System.Drawing.Size(128, 129);
-            this.buttonUser.TabIndex = 40;
-            // 
             // bunifuSeparator1
             // 
             this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.bunifuSeparator1.LineThickness = 3;
-            this.bunifuSeparator1.Location = new System.Drawing.Point(218, 248);
+            this.bunifuSeparator1.Location = new System.Drawing.Point(212, 249);
             this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
             this.bunifuSeparator1.Size = new System.Drawing.Size(10, 36);
@@ -440,7 +305,7 @@
             this.bunifuSeparator2.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.bunifuSeparator2.LineThickness = 3;
-            this.bunifuSeparator2.Location = new System.Drawing.Point(463, 248);
+            this.bunifuSeparator2.Location = new System.Drawing.Point(467, 249);
             this.bunifuSeparator2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.bunifuSeparator2.Name = "bunifuSeparator2";
             this.bunifuSeparator2.Size = new System.Drawing.Size(10, 36);
@@ -453,7 +318,7 @@
             this.bunifuSeparator3.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator3.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.bunifuSeparator3.LineThickness = 3;
-            this.bunifuSeparator3.Location = new System.Drawing.Point(705, 248);
+            this.bunifuSeparator3.Location = new System.Drawing.Point(705, 249);
             this.bunifuSeparator3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.bunifuSeparator3.Name = "bunifuSeparator3";
             this.bunifuSeparator3.Size = new System.Drawing.Size(10, 36);
@@ -464,16 +329,16 @@
             // graph
             // 
             this.graph.animationEnabled = false;
-            this.graph.AxisLineColor = System.Drawing.Color.LightGray;
-            this.graph.AxisXFontColor = System.Drawing.Color.Gray;
-            this.graph.AxisXGridColor = System.Drawing.Color.Gray;
+            this.graph.AxisLineColor = System.Drawing.Color.White;
+            this.graph.AxisXFontColor = System.Drawing.Color.White;
+            this.graph.AxisXGridColor = System.Drawing.Color.White;
             this.graph.AxisXGridThickness = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.graph.AxisYFontColor = System.Drawing.Color.Gray;
-            this.graph.AxisYGridColor = System.Drawing.Color.Gray;
+            this.graph.AxisYFontColor = System.Drawing.Color.White;
+            this.graph.AxisYGridColor = System.Drawing.Color.White;
             this.graph.AxisYGridThickness = new decimal(new int[] {
             1,
             0,
@@ -481,10 +346,10 @@
             0});
             this.graph.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(16)))), ((int)(((byte)(23)))));
             this.graph.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.graph.Location = new System.Drawing.Point(3, 322);
+            this.graph.Location = new System.Drawing.Point(7, 372);
             this.graph.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.graph.Name = "graph";
-            this.graph.Size = new System.Drawing.Size(950, 300);
+            this.graph.Size = new System.Drawing.Size(919, 300);
             this.graph.TabIndex = 44;
             this.graph.Theme = Bunifu.DataViz.WinForms.BunifuDataViz._theme.theme1;
             this.graph.Title = "";
@@ -492,6 +357,9 @@
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panel1.Controls.Add(this.bunifuSeparator5);
+            this.panel1.Controls.Add(this.bunifuSeparator4);
+            this.panel1.Controls.Add(this.dateTimePicker1);
             this.panel1.Controls.Add(this.pbprofile);
             this.panel1.Controls.Add(this.bunifuSeparator3);
             this.panel1.Controls.Add(this.graph);
@@ -528,17 +396,197 @@
             this.panel1.Controls.Add(this.pbParam3);
             this.panel1.Controls.Add(this.pbParam2);
             this.panel1.Controls.Add(this.labelParam2);
-            this.panel1.Location = new System.Drawing.Point(6, 5);
+            this.panel1.Location = new System.Drawing.Point(9, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(968, 644);
+            this.panel1.Size = new System.Drawing.Size(959, 696);
             this.panel1.TabIndex = 45;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(12, 336);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(244, 27);
+            this.dateTimePicker1.TabIndex = 45;
+            // 
+            // bunifuSeparator4
+            // 
+            this.bunifuSeparator4.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator4.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.bunifuSeparator4.LineThickness = 2;
+            this.bunifuSeparator4.Location = new System.Drawing.Point(307, 13);
+            this.bunifuSeparator4.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bunifuSeparator4.Name = "bunifuSeparator4";
+            this.bunifuSeparator4.Size = new System.Drawing.Size(11, 35);
+            this.bunifuSeparator4.TabIndex = 46;
+            this.bunifuSeparator4.Transparency = 255;
+            this.bunifuSeparator4.Vertical = true;
+            // 
+            // bunifuSeparator5
+            // 
+            this.bunifuSeparator5.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator5.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.bunifuSeparator5.LineThickness = 2;
+            this.bunifuSeparator5.Location = new System.Drawing.Point(487, 13);
+            this.bunifuSeparator5.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bunifuSeparator5.Name = "bunifuSeparator5";
+            this.bunifuSeparator5.Size = new System.Drawing.Size(15, 35);
+            this.bunifuSeparator5.TabIndex = 47;
+            this.bunifuSeparator5.Transparency = 255;
+            this.bunifuSeparator5.Vertical = true;
+            // 
+            // pbprofile
+            // 
+            this.pbprofile.Location = new System.Drawing.Point(169, 13);
+            this.pbprofile.Margin = new System.Windows.Forms.Padding(5);
+            this.pbprofile.Name = "pbprofile";
+            this.pbprofile.Size = new System.Drawing.Size(35, 35);
+            this.pbprofile.TabIndex = 0;
+            this.pbprofile.TabStop = false;
+            // 
+            // pbIsWorking
+            // 
+            this.pbIsWorking.Location = new System.Drawing.Point(351, 13);
+            this.pbIsWorking.Margin = new System.Windows.Forms.Padding(5);
+            this.pbIsWorking.Name = "pbIsWorking";
+            this.pbIsWorking.Size = new System.Drawing.Size(35, 35);
+            this.pbIsWorking.TabIndex = 2;
+            this.pbIsWorking.TabStop = false;
+            // 
+            // buttonUser
+            // 
+            this.buttonUser.BackColor = System.Drawing.Color.Transparent;
+            this.buttonUser.color = System.Drawing.Color.Transparent;
+            this.buttonUser.colorActive = System.Drawing.Color.Transparent;
+            this.buttonUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonUser.Font = new System.Drawing.Font("Century Gothic", 15.75F);
+            this.buttonUser.ForeColor = System.Drawing.Color.White;
+            this.buttonUser.Image = global::Alfa_Vega.Properties.Resources.icons8_worker_100px;
+            this.buttonUser.ImagePosition = 20;
+            this.buttonUser.ImageZoom = 50;
+            this.buttonUser.LabelPosition = 41;
+            this.buttonUser.LabelText = "Worker";
+            this.buttonUser.Location = new System.Drawing.Point(824, 14);
+            this.buttonUser.Margin = new System.Windows.Forms.Padding(6);
+            this.buttonUser.Name = "buttonUser";
+            this.buttonUser.Size = new System.Drawing.Size(128, 129);
+            this.buttonUser.TabIndex = 40;
+            // 
+            // pbTimer
+            // 
+            this.pbTimer.Image = global::Alfa_Vega.Properties.Resources.icons8_time;
+            this.pbTimer.Location = new System.Drawing.Point(540, 12);
+            this.pbTimer.Margin = new System.Windows.Forms.Padding(5);
+            this.pbTimer.Name = "pbTimer";
+            this.pbTimer.Size = new System.Drawing.Size(35, 35);
+            this.pbTimer.TabIndex = 4;
+            this.pbTimer.TabStop = false;
+            // 
+            // pbParam4
+            // 
+            this.pbParam4.Image = global::Alfa_Vega.Properties.Resources.icons8_voltage;
+            this.pbParam4.Location = new System.Drawing.Point(725, 248);
+            this.pbParam4.Margin = new System.Windows.Forms.Padding(5);
+            this.pbParam4.Name = "pbParam4";
+            this.pbParam4.Size = new System.Drawing.Size(35, 35);
+            this.pbParam4.TabIndex = 37;
+            this.pbParam4.TabStop = false;
+            // 
+            // pbTotal
+            // 
+            this.pbTotal.Image = global::Alfa_Vega.Properties.Resources.icons8_package;
+            this.pbTotal.Location = new System.Drawing.Point(180, 82);
+            this.pbTotal.Margin = new System.Windows.Forms.Padding(5);
+            this.pbTotal.Name = "pbTotal";
+            this.pbTotal.Size = new System.Drawing.Size(35, 35);
+            this.pbTotal.TabIndex = 9;
+            this.pbTotal.TabStop = false;
+            // 
+            // pbPass
+            // 
+            this.pbPass.Image = global::Alfa_Vega.Properties.Resources.icons8_checked_checkbox;
+            this.pbPass.Location = new System.Drawing.Point(180, 127);
+            this.pbPass.Margin = new System.Windows.Forms.Padding(5);
+            this.pbPass.Name = "pbPass";
+            this.pbPass.Size = new System.Drawing.Size(35, 35);
+            this.pbPass.TabIndex = 12;
+            this.pbPass.TabStop = false;
+            // 
+            // pbBad
+            // 
+            this.pbBad.Image = global::Alfa_Vega.Properties.Resources.icons8_multiply;
+            this.pbBad.Location = new System.Drawing.Point(180, 172);
+            this.pbBad.Margin = new System.Windows.Forms.Padding(5);
+            this.pbBad.Name = "pbBad";
+            this.pbBad.Size = new System.Drawing.Size(35, 35);
+            this.pbBad.TabIndex = 15;
+            this.pbBad.TabStop = false;
+            // 
+            // pbSpliterrr
+            // 
+            this.pbSpliterrr.BackgroundImage = global::Alfa_Vega.Properties.Resources.Splitterr;
+            this.pbSpliterrr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pbSpliterrr.Location = new System.Drawing.Point(3, 291);
+            this.pbSpliterrr.Name = "pbSpliterrr";
+            this.pbSpliterrr.Size = new System.Drawing.Size(923, 16);
+            this.pbSpliterrr.TabIndex = 29;
+            this.pbSpliterrr.TabStop = false;
+            // 
+            // pbSplitterr
+            // 
+            this.pbSplitterr.BackgroundImage = global::Alfa_Vega.Properties.Resources.Splitterr;
+            this.pbSplitterr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pbSplitterr.Location = new System.Drawing.Point(3, 212);
+            this.pbSplitterr.Name = "pbSplitterr";
+            this.pbSplitterr.Size = new System.Drawing.Size(923, 16);
+            this.pbSplitterr.TabIndex = 18;
+            this.pbSplitterr.TabStop = false;
+            // 
+            // pbSplitter
+            // 
+            this.pbSplitter.BackgroundImage = global::Alfa_Vega.Properties.Resources.Splitterr;
+            this.pbSplitter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pbSplitter.Location = new System.Drawing.Point(3, 55);
+            this.pbSplitter.Name = "pbSplitter";
+            this.pbSplitter.Size = new System.Drawing.Size(923, 16);
+            this.pbSplitter.TabIndex = 28;
+            this.pbSplitter.TabStop = false;
+            // 
+            // pbParam1
+            // 
+            this.pbParam1.Image = global::Alfa_Vega.Properties.Resources.icons8_thermometer;
+            this.pbParam1.Location = new System.Drawing.Point(3, 248);
+            this.pbParam1.Margin = new System.Windows.Forms.Padding(5);
+            this.pbParam1.Name = "pbParam1";
+            this.pbParam1.Size = new System.Drawing.Size(35, 35);
+            this.pbParam1.TabIndex = 19;
+            this.pbParam1.TabStop = false;
+            // 
+            // pbParam3
+            // 
+            this.pbParam3.Image = global::Alfa_Vega.Properties.Resources.icons8_pressure;
+            this.pbParam3.Location = new System.Drawing.Point(487, 248);
+            this.pbParam3.Margin = new System.Windows.Forms.Padding(5);
+            this.pbParam3.Name = "pbParam3";
+            this.pbParam3.Size = new System.Drawing.Size(35, 35);
+            this.pbParam3.TabIndex = 25;
+            this.pbParam3.TabStop = false;
+            // 
+            // pbParam2
+            // 
+            this.pbParam2.Image = global::Alfa_Vega.Properties.Resources.icons8_Clean;
+            this.pbParam2.Location = new System.Drawing.Point(227, 248);
+            this.pbParam2.Margin = new System.Windows.Forms.Padding(5);
+            this.pbParam2.Name = "pbParam2";
+            this.pbParam2.Size = new System.Drawing.Size(35, 35);
+            this.pbParam2.TabIndex = 22;
+            this.pbParam2.TabStop = false;
             // 
             // INFO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(41)))), ((int)(((byte)(37)))));
-            this.ClientSize = new System.Drawing.Size(978, 637);
+            this.ClientSize = new System.Drawing.Size(971, 710);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -549,21 +597,21 @@
             this.Name = "INFO";
             this.Text = "INFO";
             this.Load += new System.EventHandler(this.INFO_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pbTimer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbIsWorking)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbprofile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbIsWorking)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTimer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbParam4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTotal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBad)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSplitterr)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbParam1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbParam2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbParam3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSplitter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSpliterrr)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbParam4)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSplitterr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSplitter)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbParam1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbParam3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbParam2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -607,5 +655,8 @@
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator3;
         private Bunifu.DataViz.WinForms.BunifuDataViz graph;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator5;
+        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator4;
     }
 }

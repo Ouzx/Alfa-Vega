@@ -283,5 +283,38 @@
   <ItemGroup>
     <None Include="Resources\icons8_marker.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_package.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_checked_checkbox.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_multiply.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_time.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_thermometer.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Clean.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_pressure.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_voltage.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_factory_100px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_module_60px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_worker_100px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

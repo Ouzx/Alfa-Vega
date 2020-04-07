@@ -97,5 +97,10 @@ namespace Alfa_Vega
             foreach (var v in Selected.Menu) v.Clear();
             SetMenu();
         }
+
+        private void buttonClock_Click(object sender, EventArgs e)
+        {
+            OpenForm.OpnForm(new INFO(Selected.Units.MACHINES,"Oz",true,"00","123",new int[] { 80,70,10},new int[] { 50,60,70,80},new string[] { "asd", "asd1","asd2","asd3"},new int[] { 100,250,350,750,95,25,40})); 
+        }
     }
 }
