@@ -101,7 +101,7 @@
             this.buttonDelete.Text = "Sil";
             this.buttonDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonDelete.UseVisualStyleBackColor = true;
-            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            //this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // indicator2
             // 
@@ -139,7 +139,7 @@
             this.buttonSet.Text = "Düzenle";
             this.buttonSet.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonSet.UseVisualStyleBackColor = true;
-            this.buttonSet.Click += new System.EventHandler(this.buttonSet_Click);
+            //this.buttonSet.Click += new System.EventHandler(this.buttonSet_Click);
             // 
             // buttonAdd
             // 
@@ -154,7 +154,7 @@
             this.buttonAdd.Text = "Ekle";
             this.buttonAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            //this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // panel2
             // 
@@ -197,7 +197,7 @@
             this.btnFactory.Name = "btnFactory";
             this.btnFactory.Size = new System.Drawing.Size(128, 129);
             this.btnFactory.TabIndex = 21;
-            this.btnFactory.Click += new System.EventHandler(this.btnFactory_Click);
+            //this.btnFactory.Click += new System.EventHandler(this.btnFactory_Click);
             // 
             // btnPlace
             // 
@@ -219,7 +219,7 @@
             this.btnPlace.Name = "btnPlace";
             this.btnPlace.Size = new System.Drawing.Size(128, 129);
             this.btnPlace.TabIndex = 22;
-            this.btnPlace.Click += new System.EventHandler(this.btnPlace_Click);
+            //this.btnPlace.Click += new System.EventHandler(this.btnPlace_Click);
             // 
             // btnMachine
             // 
@@ -241,7 +241,7 @@
             this.btnMachine.Name = "btnMachine";
             this.btnMachine.Size = new System.Drawing.Size(128, 129);
             this.btnMachine.TabIndex = 23;
-            this.btnMachine.Click += new System.EventHandler(this.btnMachine_Click);
+            //this.btnMachine.Click += new System.EventHandler(this.btnMachine_Click);
             // 
             // btnWorker
             // 
@@ -263,7 +263,7 @@
             this.btnWorker.Name = "btnWorker";
             this.btnWorker.Size = new System.Drawing.Size(128, 129);
             this.btnWorker.TabIndex = 24;
-            this.btnWorker.Click += new System.EventHandler(this.btnWorker_Click);
+            //this.btnWorker.Click += new System.EventHandler(this.btnWorker_Click);
             // 
             // btnDepartment
             // 
@@ -285,7 +285,7 @@
             this.btnDepartment.Name = "btnDepartment";
             this.btnDepartment.Size = new System.Drawing.Size(133, 129);
             this.btnDepartment.TabIndex = 25;
-            this.btnDepartment.Click += new System.EventHandler(this.btnDepartment_Click);
+            //this.btnDepartment.Click += new System.EventHandler(this.btnDepartment_Click);
             // 
             // cbOwner
             // 
@@ -465,7 +465,7 @@
             this.btnVega.Name = "btnVega";
             this.btnVega.Size = new System.Drawing.Size(128, 129);
             this.btnVega.TabIndex = 30;
-            this.btnVega.Click += new System.EventHandler(this.btnVega_Click);
+            //this.btnVega.Click += new System.EventHandler(this.btnVega_Click);
             // 
             // btnSave
             // 
@@ -480,7 +480,7 @@
             this.btnSave.Text = "Onayla";
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            //this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // label7
             // 
@@ -544,7 +544,7 @@
             this.btnProduct.Name = "btnProduct";
             this.btnProduct.Size = new System.Drawing.Size(128, 129);
             this.btnProduct.TabIndex = 33;
-            this.btnProduct.Click += new System.EventHandler(this.btnProduct_Click);
+           // this.btnProduct.Click += new System.EventHandler(this.btnProduct_Click);
             // 
             // Settings
             // 
@@ -560,7 +560,7 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Settings";
             this.Text = "Settings";
-            this.Load += new System.EventHandler(this.Settings_Load);
+            //this.Load += new System.EventHandler(this.Settings_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.indicator2)).EndInit();
             this.panel2.ResumeLayout(false);

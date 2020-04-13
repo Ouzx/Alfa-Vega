@@ -10,14 +10,15 @@ using System.Windows.Forms;
 
 namespace Alfa_Vega
 {
-    public partial class INFO : Form
+    public partial class Producer : Form
     {
-        public INFO()
+        public Producer()
         {
             InitializeComponent();
 
         }
-        public INFO(Selected.Units _unit, string _name, bool _isWorking, string _time, string _userName, int[] _production, int[] _params, string[] _paramNames, int[] _graphData)
+        public Producer(Selected.Units _unit, string _name, bool _isWorking, string _time, string _userName,
+                        int[] _production, int[] _params, int[] _graphData)
         {
             InitializeComponent();
             Unit = _unit;
@@ -27,8 +28,21 @@ namespace Alfa_Vega
             UserName = _userName;
             Production = _production;
             Params = _params;
-            ParamNames = _paramNames;
             GraphData = _graphData;
+        }
+        public Producer(Selected.Units _unit, string _name, bool _isWorking, string _time, string _userName,
+                       int[] _production, int[] _params, int[] _graphData, DateTime _dateTime)
+        {
+            InitializeComponent();
+            Unit = _unit;
+            Name = _name;
+            IsWorking = _isWorking;
+            Time = _time;
+            UserName = _userName;
+            Production = _production;
+            Params = _params;
+            GraphData = _graphData;
+            dateTime = _dateTime;
         }
         private void INFO_Load(object sender, EventArgs e)
         {
@@ -87,7 +101,7 @@ namespace Alfa_Vega
                 pgbParam3.Value = Params[2];
                 pgbParam4.Value = Params[3];
                 DrawGraph();
-
+                if (dateTime.ToString() != "1.01.0001 00:00:00") dateTimePicker1.Value = dateTime;
             }
             else
             {
@@ -107,24 +121,39 @@ namespace Alfa_Vega
         private string UserName;
         private int[] Production = new int[3];
         private int[] Params = new int[4];
-        private string[] ParamNames = new string[4];
         private int[] GraphData;
+        public static  DateTime dateTime;
         #endregion
 
         private void DrawGraph()
         {
-            var canvas = new Bunifu.DataViz.WinForms.Canvas();
-            var datapoint = new Bunifu.DataViz.WinForms.DataPoint(Bunifu.DataViz.WinForms.BunifuDataViz._type.Bunifu_area);
-            datapoint.addLabely("08:00", GraphData[0]);
-            datapoint.addLabely("10:00", GraphData[1]);
-            datapoint.addLabely("12:00", GraphData[2]);
-            datapoint.addLabely("14:00", GraphData[3]);
-            datapoint.addLabely("16:00", GraphData[4]);
-            datapoint.addLabely("18:00", GraphData[5]);
-            datapoint.addLabely("20:00", GraphData[6]);
-            canvas.addData(datapoint);
-            graph.Render(canvas);
+            if (GraphData.Length > 6)
+            {
+                var canvas = new Bunifu.DataViz.WinForms.Canvas();
+                var datapoint = new Bunifu.DataViz.WinForms.DataPoint(Bunifu.DataViz.WinForms.BunifuDataViz._type.Bunifu_area);
+                datapoint.addLabely("08:00", GraphData[0]);
+                datapoint.addLabely("10:00", GraphData[1]);
+                datapoint.addLabely("12:00", GraphData[2]);
+                datapoint.addLabely("14:00", GraphData[3]);
+                datapoint.addLabely("16:00", GraphData[4]);
+                datapoint.addLabely("18:00", GraphData[5]);
+                datapoint.addLabely("20:00", GraphData[6]);
+                canvas.addData(datapoint);
+                graph.Render(canvas);
+            }
+                
+            else MessageBox.Show("Tablo verisi bozuk ya da hatalı!", "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
 
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            dateTime = dateTimePicker1.Value;
+            Randomizer randomizer = new Randomizer();
+            randomizer.GetProducer(Unit, Name, UserName, false, dateTime);
+        }
+
+        private void buttonUser_Click(object sender, EventArgs e)
+        {
         }
     }
 

@@ -331,6 +331,46 @@ namespace Alfa_Vega
             }
             return Granted;
         }
+
+        public string GetOwnerName(Selected.Units _unit,string _id)
+        {
+            string _table = "";
+            string temp = "";
+            switch (_unit)
+            {
+                case Selected.Units.FACTORIES:
+                    _table = "USERS";
+                    break;
+                case Selected.Units.DEPARTMENTS:
+                    _table = "FACTORIES";
+                    break;
+                case Selected.Units.PLACES:
+                    _table = "DEPARTMENTS";
+                    break;
+                case Selected.Units.MACHINES:
+                    _table = "DEPARTMENTS";
+                    break;
+                case Selected.Units.WORKERS:
+                    _table = "DEPARTMENTS";
+                    break;
+                case Selected.Units.VEGAS:
+                    _table = "DEPARTMENTS";
+                    break;
+                default: break;
+            }
+            string s = "";
+            if (_unit != Selected.Units.FACTORIES)
+            {
+                s = "SELECT NAME FROM " + _table + " WHERE ID=" + _id;
+                Connect();
+                using (MySqlDataReader reader = new MySqlCommand(s, connection).ExecuteReader())
+                {
+                    if (reader.Read()) if (!reader.IsDBNull(0)) temp = reader.GetString(0);
+                }
+                Disconnect();
+            }
+            return temp;
+        }
         
     }
 }

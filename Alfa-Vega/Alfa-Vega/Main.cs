@@ -59,22 +59,25 @@ namespace Alfa_Vega
                                             SubSubMenu = new SideMenu(SubMenu.panel, Selected.Menu[k][j][0], Selected.Menu[k][j][1], Selected.Menu[k][j][2], (Selected.Units)k, false);
                                         }
                                     }
+                                    /*
                                     if (SubMenu.panel.Controls.Count == 0)
                                     {
                                         SubDepartments.panel.Controls.Remove(SubMenu.panel);
                                         SubDepartments.panel.Controls.Remove(SubMenu.button);
                                     }
+                                    */
                                 }
                             }
                         }
 
                     }
-                    
+                    /*
                     //Cleaner
                     if (Departments.panel.Controls.Count == 0)
                     {
                         Factories.panel.Controls.Remove(SubFactories.panel);
                     }
+                    */
                     
                 }
             }
@@ -98,9 +101,10 @@ namespace Alfa_Vega
             SetMenu();
         }
 
-        private void buttonClock_Click(object sender, EventArgs e)
+
+        private void timer1_Tick(object sender, EventArgs e)
         {
-            OpenForm.OpnForm(new INFO(Selected.Units.MACHINES,"Oz",true,"00","123",new int[] { 80,70,10},new int[] { 50,60,70,80},new string[] { "asd", "asd1","asd2","asd3"},new int[] { 100,250,350,750,95,25,40})); 
+            buttonClock.Text = DateTime.Now.ToString();
         }
     }
 }

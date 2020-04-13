@@ -179,7 +179,7 @@ namespace Alfa_Vega
                 AddParentMenu();
             }
         }
-
+        Randomizer randomizer = new Randomizer();
         public void button_Click(object sender, EventArgs e)
         {
             if (panel.Visible)
@@ -192,7 +192,7 @@ namespace Alfa_Vega
             }
             if (!isParent)
             {
-                OpenForm.OpnForm(new INFO());
+                randomizer.GetProducer(Unit,Name,OwnerID,true);
             }
         }
 

@@ -1,6 +1,6 @@
 ﻿namespace Alfa_Vega
 {
-    partial class INFO
+    partial class Producer
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(INFO));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Producer));
             this.labelProfile = new System.Windows.Forms.Label();
             this.labelIsWorking = new System.Windows.Forms.Label();
             this.labelTimer = new System.Windows.Forms.Label();
@@ -52,9 +52,9 @@
             this.bunifuSeparator3 = new Bunifu.Framework.UI.BunifuSeparator();
             this.graph = new Bunifu.DataViz.WinForms.BunifuDataViz();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.bunifuSeparator4 = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuSeparator5 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.bunifuSeparator4 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.pbprofile = new System.Windows.Forms.PictureBox();
             this.pbIsWorking = new System.Windows.Forms.PictureBox();
             this.buttonUser = new Bunifu.Framework.UI.BunifuTileButton();
@@ -191,7 +191,7 @@
             this.pgbTotal.BackColor = System.Drawing.Color.Silver;
             this.pgbTotal.BorderRadius = 10;
             this.pgbTotal.Location = new System.Drawing.Point(307, 95);
-            this.pgbTotal.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pgbTotal.Margin = new System.Windows.Forms.Padding(5);
             this.pgbTotal.MaximumValue = 100;
             this.pgbTotal.Name = "pgbTotal";
             this.pgbTotal.ProgressColor = System.Drawing.Color.Teal;
@@ -204,7 +204,7 @@
             this.pgbPass.BackColor = System.Drawing.Color.Silver;
             this.pgbPass.BorderRadius = 10;
             this.pgbPass.Location = new System.Drawing.Point(307, 141);
-            this.pgbPass.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pgbPass.Margin = new System.Windows.Forms.Padding(5);
             this.pgbPass.MaximumValue = 100;
             this.pgbPass.Name = "pgbPass";
             this.pgbPass.ProgressColor = System.Drawing.Color.LimeGreen;
@@ -217,7 +217,7 @@
             this.pgbBad.BackColor = System.Drawing.Color.Silver;
             this.pgbBad.BorderRadius = 10;
             this.pgbBad.Location = new System.Drawing.Point(307, 183);
-            this.pgbBad.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.pgbBad.Margin = new System.Windows.Forms.Padding(8);
             this.pgbBad.MaximumValue = 100;
             this.pgbBad.Name = "pgbBad";
             this.pgbBad.ProgressColor = System.Drawing.Color.Crimson;
@@ -230,7 +230,7 @@
             this.pgbParam1.BackColor = System.Drawing.Color.Silver;
             this.pgbParam1.BorderRadius = 10;
             this.pgbParam1.Location = new System.Drawing.Point(115, 252);
-            this.pgbParam1.Margin = new System.Windows.Forms.Padding(13, 13, 13, 13);
+            this.pgbParam1.Margin = new System.Windows.Forms.Padding(13);
             this.pgbParam1.MaximumValue = 100;
             this.pgbParam1.Name = "pgbParam1";
             this.pgbParam1.ProgressColor = System.Drawing.Color.Red;
@@ -243,7 +243,7 @@
             this.pgbParam2.BackColor = System.Drawing.Color.Silver;
             this.pgbParam2.BorderRadius = 10;
             this.pgbParam2.Location = new System.Drawing.Point(368, 252);
-            this.pgbParam2.Margin = new System.Windows.Forms.Padding(13, 13, 13, 13);
+            this.pgbParam2.Margin = new System.Windows.Forms.Padding(13);
             this.pgbParam2.MaximumValue = 100;
             this.pgbParam2.Name = "pgbParam2";
             this.pgbParam2.ProgressColor = System.Drawing.Color.DodgerBlue;
@@ -256,7 +256,7 @@
             this.pgbParam3.BackColor = System.Drawing.Color.Silver;
             this.pgbParam3.BorderRadius = 10;
             this.pgbParam3.Location = new System.Drawing.Point(592, 252);
-            this.pgbParam3.Margin = new System.Windows.Forms.Padding(13, 13, 13, 13);
+            this.pgbParam3.Margin = new System.Windows.Forms.Padding(13);
             this.pgbParam3.MaximumValue = 100;
             this.pgbParam3.Name = "pgbParam3";
             this.pgbParam3.ProgressColor = System.Drawing.Color.Goldenrod;
@@ -279,7 +279,7 @@
             this.pgbParam4.BackColor = System.Drawing.Color.Silver;
             this.pgbParam4.BorderRadius = 10;
             this.pgbParam4.Location = new System.Drawing.Point(812, 252);
-            this.pgbParam4.Margin = new System.Windows.Forms.Padding(13, 13, 13, 13);
+            this.pgbParam4.Margin = new System.Windows.Forms.Padding(13);
             this.pgbParam4.MaximumValue = 100;
             this.pgbParam4.Name = "pgbParam4";
             this.pgbParam4.ProgressColor = System.Drawing.Color.Yellow;
@@ -291,9 +291,9 @@
             // 
             this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.bunifuSeparator1.LineThickness = 3;
+            this.bunifuSeparator1.LineThickness = 8;
             this.bunifuSeparator1.Location = new System.Drawing.Point(212, 249);
-            this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(5);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
             this.bunifuSeparator1.Size = new System.Drawing.Size(10, 36);
             this.bunifuSeparator1.TabIndex = 41;
@@ -304,9 +304,9 @@
             // 
             this.bunifuSeparator2.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.bunifuSeparator2.LineThickness = 3;
+            this.bunifuSeparator2.LineThickness = 8;
             this.bunifuSeparator2.Location = new System.Drawing.Point(467, 249);
-            this.bunifuSeparator2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bunifuSeparator2.Margin = new System.Windows.Forms.Padding(5);
             this.bunifuSeparator2.Name = "bunifuSeparator2";
             this.bunifuSeparator2.Size = new System.Drawing.Size(10, 36);
             this.bunifuSeparator2.TabIndex = 42;
@@ -317,9 +317,9 @@
             // 
             this.bunifuSeparator3.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator3.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.bunifuSeparator3.LineThickness = 3;
+            this.bunifuSeparator3.LineThickness = 8;
             this.bunifuSeparator3.Location = new System.Drawing.Point(705, 249);
-            this.bunifuSeparator3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bunifuSeparator3.Margin = new System.Windows.Forms.Padding(5);
             this.bunifuSeparator3.Name = "bunifuSeparator3";
             this.bunifuSeparator3.Size = new System.Drawing.Size(10, 36);
             this.bunifuSeparator3.TabIndex = 43;
@@ -347,7 +347,7 @@
             this.graph.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(16)))), ((int)(((byte)(23)))));
             this.graph.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.graph.Location = new System.Drawing.Point(7, 372);
-            this.graph.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.graph.Margin = new System.Windows.Forms.Padding(5);
             this.graph.Name = "graph";
             this.graph.Size = new System.Drawing.Size(919, 300);
             this.graph.TabIndex = 44;
@@ -401,38 +401,40 @@
             this.panel1.Size = new System.Drawing.Size(959, 696);
             this.panel1.TabIndex = 45;
             // 
-            // dateTimePicker1
+            // bunifuSeparator5
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(12, 336);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(244, 27);
-            this.dateTimePicker1.TabIndex = 45;
+            this.bunifuSeparator5.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator5.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.bunifuSeparator5.LineThickness = 5;
+            this.bunifuSeparator5.Location = new System.Drawing.Point(487, 13);
+            this.bunifuSeparator5.Margin = new System.Windows.Forms.Padding(5);
+            this.bunifuSeparator5.Name = "bunifuSeparator5";
+            this.bunifuSeparator5.Size = new System.Drawing.Size(15, 35);
+            this.bunifuSeparator5.TabIndex = 47;
+            this.bunifuSeparator5.Transparency = 255;
+            this.bunifuSeparator5.Vertical = true;
             // 
             // bunifuSeparator4
             // 
             this.bunifuSeparator4.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator4.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.bunifuSeparator4.LineThickness = 2;
+            this.bunifuSeparator4.LineThickness = 5;
             this.bunifuSeparator4.Location = new System.Drawing.Point(307, 13);
-            this.bunifuSeparator4.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bunifuSeparator4.Margin = new System.Windows.Forms.Padding(5);
             this.bunifuSeparator4.Name = "bunifuSeparator4";
             this.bunifuSeparator4.Size = new System.Drawing.Size(11, 35);
             this.bunifuSeparator4.TabIndex = 46;
             this.bunifuSeparator4.Transparency = 255;
             this.bunifuSeparator4.Vertical = true;
             // 
-            // bunifuSeparator5
+            // dateTimePicker1
             // 
-            this.bunifuSeparator5.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuSeparator5.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.bunifuSeparator5.LineThickness = 2;
-            this.bunifuSeparator5.Location = new System.Drawing.Point(487, 13);
-            this.bunifuSeparator5.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.bunifuSeparator5.Name = "bunifuSeparator5";
-            this.bunifuSeparator5.Size = new System.Drawing.Size(15, 35);
-            this.bunifuSeparator5.TabIndex = 47;
-            this.bunifuSeparator5.Transparency = 255;
-            this.bunifuSeparator5.Vertical = true;
+            this.dateTimePicker1.Location = new System.Drawing.Point(12, 336);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(244, 27);
+            this.dateTimePicker1.TabIndex = 45;
+            if (Producer.dateTime.ToString() != "1.01.0001 00:00:00") this.dateTimePicker1.Value = Producer.dateTime;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // pbprofile
             // 
@@ -470,6 +472,7 @@
             this.buttonUser.Name = "buttonUser";
             this.buttonUser.Size = new System.Drawing.Size(128, 129);
             this.buttonUser.TabIndex = 40;
+            this.buttonUser.Click += new System.EventHandler(this.buttonUser_Click);
             // 
             // pbTimer
             // 
@@ -581,7 +584,7 @@
             this.pbParam2.TabIndex = 22;
             this.pbParam2.TabStop = false;
             // 
-            // INFO
+            // Producer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -594,7 +597,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5);
-            this.Name = "INFO";
+            this.Name = "Producer";
             this.Text = "INFO";
             this.Load += new System.EventHandler(this.INFO_Load);
             this.panel1.ResumeLayout(false);

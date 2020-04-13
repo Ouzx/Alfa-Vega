@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panelMenu = new System.Windows.Forms.Panel();
             this.panelBase = new System.Windows.Forms.Panel();
@@ -38,6 +39,7 @@
             this.buttonUser = new System.Windows.Forms.Button();
             this.buttonClock = new System.Windows.Forms.Button();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             this.panelUpper.SuspendLayout();
@@ -157,7 +159,6 @@
             this.buttonClock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonClock.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonClock.UseVisualStyleBackColor = false;
-            this.buttonClock.Click += new System.EventHandler(this.buttonClock_Click);
             // 
             // panelMain
             // 
@@ -171,6 +172,12 @@
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(990, 513);
             this.panelMain.TabIndex = 2;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Main
             // 
@@ -210,5 +217,6 @@
         private System.Windows.Forms.Panel panelBase;
         private System.Windows.Forms.Button btnMainMenu;
         private System.Windows.Forms.Button btnSettings;
+        private System.Windows.Forms.Timer timer1;
     }
 }

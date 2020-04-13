@@ -67,11 +67,8 @@ namespace Alfa_Vega
         {
             MoveIndicator((Control)sender);
             SelectedUnit = Unit.FACTORIES;
-            if (SelectedMode != Mode.Delete)
-            {
-                gbWorker.Enabled = false;
-                gbPlace.Enabled = false;
-            }
+            gbWorker.Enabled = false;
+            gbPlace.Enabled = false;
             GetName(SelectedUnit);
             GetType(SelectedUnit);
             GetOwner(SelectedUnit);
@@ -82,11 +79,8 @@ namespace Alfa_Vega
         {
             SelectedUnit = Unit.DEPARTMENTS;
             MoveIndicator((Control)sender);
-            if (SelectedMode != Mode.Delete)
-            {
-                gbWorker.Enabled = false;
-                gbPlace.Enabled = false;
-            }
+            gbWorker.Enabled = false;
+            gbPlace.Enabled = false;
             GetName(SelectedUnit);
             GetType(SelectedUnit);
             GetOwner(SelectedUnit);
@@ -97,11 +91,8 @@ namespace Alfa_Vega
         {
             MoveIndicator((Control)sender);
             SelectedUnit = Unit.PLACES;
-            if (SelectedMode != Mode.Delete)
-            {
-                gbWorker.Enabled = false;
-                gbPlace.Enabled = true;
-            }
+            gbWorker.Enabled = false;
+            gbPlace.Enabled = true;
             GetName(SelectedUnit);
             GetType(SelectedUnit);
             GetOwner(SelectedUnit);
@@ -112,11 +103,8 @@ namespace Alfa_Vega
         {
             MoveIndicator((Control)sender);
             SelectedUnit = Unit.MACHINES;
-            if (SelectedMode != Mode.Delete)
-            {
-                gbWorker.Enabled = false;
-                gbPlace.Enabled = false;
-            }
+            gbWorker.Enabled = false;
+            gbPlace.Enabled = false;
             GetName(SelectedUnit);
             GetType(SelectedUnit);
             GetOwner(SelectedUnit);
@@ -127,11 +115,8 @@ namespace Alfa_Vega
         {
             MoveIndicator((Control)sender);
             SelectedUnit = Unit.WORKERS;
-            if (SelectedMode != Mode.Delete)
-            {
-                gbWorker.Enabled = true;
-                gbPlace.Enabled = false;
-            }
+            gbWorker.Enabled = true;
+            gbPlace.Enabled = false;
             GetName(SelectedUnit);
             GetType(SelectedUnit);
             GetOwner(SelectedUnit);
@@ -143,11 +128,8 @@ namespace Alfa_Vega
         {
             MoveIndicator((Control)sender);
             SelectedUnit = Unit.PRODUCTS;
-            if (SelectedMode != Mode.Delete)
-            {
-                gbWorker.Enabled = false;
-                gbPlace.Enabled = false;
-            }
+            gbWorker.Enabled = false;
+            gbPlace.Enabled = false;
             GetName(SelectedUnit);
             GetType(SelectedUnit);
             GetOwner(SelectedUnit);
@@ -158,11 +140,8 @@ namespace Alfa_Vega
         {
             MoveIndicator((Control)sender);
             SelectedUnit = Unit.VEGAS;
-            if (SelectedMode != Mode.Delete)
-            {
-                gbWorker.Enabled = false;
-                gbPlace.Enabled = false;
-            }
+            gbWorker.Enabled = false;
+            gbPlace.Enabled = false;
             GetName(SelectedUnit);
             GetType(SelectedUnit);
             GetOwner(SelectedUnit);
@@ -173,11 +152,8 @@ namespace Alfa_Vega
         {
             MoveIndicator2((Control)sender);
             SelectedMode = Mode.Add;
-            gbEdit.Enabled = false;
             gbInitial.Enabled = true;
-            gbPlace.Enabled = true;
-            gbWorker.Enabled = true;
-            btnSave.Enabled = true;
+            gbEdit.Enabled = false;
             GetType(SelectedUnit);
             GetOwner(SelectedUnit);
 
@@ -187,20 +163,16 @@ namespace Alfa_Vega
         {
             MoveIndicator2((Control)sender);
             SelectedMode = Mode.Edit;
-            gbEdit.Enabled = true;
             gbInitial.Enabled = true;
-            gbPlace.Enabled = true;
-            gbWorker.Enabled = true;
+            gbEdit.Enabled = true;
+
             GetName(SelectedUnit);
             GetType(SelectedUnit);
             GetOwner(SelectedUnit);
             if (!Read())
             {
                 MessageBox.Show("Veri bulunamdı!", "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                gbEdit.Enabled = false;
-                gbInitial.Enabled = false;
-                gbPlace.Enabled = false;
-                gbWorker.Enabled = false;
+                
             }
         }
 
@@ -210,27 +182,20 @@ namespace Alfa_Vega
             MoveIndicator2((Control)sender);
             SelectedMode = Mode.Delete;
             gbInitial.Enabled = false;
-            gbPlace.Enabled = false;
-            gbWorker.Enabled = false;
             gbEdit.Enabled = true;
+            gbWorker.Enabled = false;
+            gbPlace.Enabled = false;
             GetName(SelectedUnit);
-            btnSave.Enabled = true;
             if (!Read())
             {
                 MessageBox.Show("Veri bulunamdı!", "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                gbEdit.Enabled = false;
-                gbInitial.Enabled = false;
-                gbPlace.Enabled = false;
-                gbWorker.Enabled = false;
             }
 
         }
 
         private void Settings_Load(object sender, EventArgs e)
         {
-            gbEdit.Enabled = false;
-            gbWorker.Enabled = false;
-            gbPlace.Enabled = false;
+            Selected.NameID = vegas.GetLastID(SelectedUnit.ToString());
             GetType(SelectedUnit);
             GetOwner(SelectedUnit);
         }
@@ -346,10 +311,12 @@ namespace Alfa_Vega
                                 vegas.Delete(Unit.VEGAS.ToString(), Selected.NameID);
                                 break;
                         }
+                        Selected.NameID = vegas.GetLastID(SelectedUnit.ToString());
 
                         break;
                 }
             }
+
             Clear();
             GetName(SelectedUnit);
             GetType(SelectedUnit);
@@ -387,7 +354,7 @@ namespace Alfa_Vega
             }
             else
             {
-                if(SelectedMode != Mode.Add) btnSave.Enabled = false;
+               // if(SelectedMode != Mode.Add) btnSave.Enabled = false;
                 return false;
             }
 
