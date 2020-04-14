@@ -26,5 +26,9 @@ namespace Alfa_Vega
             _form.BringToFront();
             _form.Show();
         }
+        public static void ReSize()
+        {
+            activeForm.Anchor = AnchorStyles.Top;
+        }
     }
 }

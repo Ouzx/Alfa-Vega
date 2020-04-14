@@ -14,7 +14,7 @@ namespace Alfa_Vega
     {
         #region Splash & INIT
 
-        bool done = true;
+        bool done = false;
         public Login()
         {
             Splash s = new Splash();

@@ -105,6 +105,12 @@ namespace Alfa_Vega
         private void timer1_Tick(object sender, EventArgs e)
         {
             buttonClock.Text = DateTime.Now.ToString();
+
+        }
+
+        private void ReSize(object sender, EventArgs e)
+        {
+            OpenForm.ReSize();
         }
     }
 }

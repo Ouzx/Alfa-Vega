@@ -78,6 +78,7 @@ namespace Alfa_Vega
             MACHINES,
             WORKERS,
             VEGAS
+
         }
         /// <summary>
         /// Ana ekranda listelencek olan menüler.
