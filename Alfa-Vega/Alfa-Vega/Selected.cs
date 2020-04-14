@@ -15,19 +15,6 @@ namespace Alfa_Vega
     public static class Selected
     {
         /// <summary>
-        /// Selected NAMEID
-        /// </summary>
-        public static int NameID = 1;
-        /// <summary>
-        /// SELECTED TYPEID
-        /// </summary>
-        public static int TypeID = 0;
-        /// <summary>
-        /// SELECTED OWNER ID
-        /// </summary>
-        public static int OwnerID = 0;
-
-        /// <summary>
         /// GetAll() metodunun hangi amaçla çağırıldığını tutan enum.
         /// </summary>
         public enum Mode
@@ -37,8 +24,6 @@ namespace Alfa_Vega
             Owner
         }
 
-        
-        
         /// <summary>
         /// cbName üzerinde listelencek olan Birimlerin isimleri.
         /// </summary>

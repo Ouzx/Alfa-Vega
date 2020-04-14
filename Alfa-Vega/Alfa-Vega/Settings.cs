@@ -21,7 +21,7 @@ namespace Alfa_Vega
 
             timer.Start();
 
-            Selected.NameID = vs.GetLastID(unit.ToString());
+            
             unit = Unit.FACTORIES;
             mode = Mode.Add;
             Clear();
@@ -140,7 +140,6 @@ namespace Alfa_Vega
                             "Önce geçerli bir birim oluşturun.\n" +
                             "Detaylar için sistem yöneticinize başvurun.", "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Clear();
-                Selected.NameID = -1;
             }
         }
         private void GetTyp()
@@ -162,7 +161,6 @@ namespace Alfa_Vega
                                "Önce geçerli bir tip oluşturun.\n" +
                                "Detaylar için sistem yöneticinize başvurun.", "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Clear();
-                Selected.TypeID = -1;
             }
         }
         private void GetOwner()
@@ -210,13 +208,12 @@ namespace Alfa_Vega
                                "Önce bir bağlılık oluşturun.\n" +
                                "Detaylar için sistem yöneticinize başvurun.", "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Clear();
-                Selected.OwnerID = -1;
             }
         }
 
         private void Read()
         {
-            List<string> data = vs.Get(unit.ToString(), Selected.NameID);
+            List<string> data = vs.Get(unit.ToString(), Selected.NameInt[cbName.SelectedIndex]);
             if (data.Count > 0)
             {
                 tbName.Text = data[2];
@@ -246,11 +243,8 @@ namespace Alfa_Vega
             if (cbName.Items.Count > 0)
             {
                 if (cbName.SelectedIndex == -1) cbName.SelectedIndex = 0;
-                else
-                {
-                    Selected.NameID = Selected.NameInt[cbName.SelectedIndex];
-                    Read();
-                }
+                else Read();
+                
             }
         }
         private void cbType_SelectedIndexChanged(object sender, EventArgs e)
@@ -258,7 +252,6 @@ namespace Alfa_Vega
             if (cbType.Items.Count > 0)
             {
                 if (cbType.SelectedIndex == -1) cbType.SelectedIndex = 0;  
-                else Selected.TypeID = Selected.TypeInt[cbType.SelectedIndex];
             }
         }
         private void cbOwner_SelectedIndexChanged(object sender, EventArgs e)
@@ -266,7 +259,6 @@ namespace Alfa_Vega
             if (cbOwner.Items.Count > 0)
             {
                 if (cbOwner.SelectedIndex == -1) cbName.SelectedIndex = 0;
-                else Selected.OwnerID = Selected.OwnerInt[cbOwner.SelectedIndex];
             }
         }
 
