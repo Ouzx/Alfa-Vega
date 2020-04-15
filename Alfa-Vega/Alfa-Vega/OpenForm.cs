@@ -28,7 +28,7 @@ namespace Alfa_Vega
         }
         public static void ReSize()
         {
-            activeForm.Anchor = AnchorStyles.Top;
+            if(activeForm != null) activeForm.Anchor = AnchorStyles.Top;
         }
     }
 }

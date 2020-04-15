@@ -286,11 +286,11 @@ namespace Alfa_Vega
                     case Mode.Edit:
                         if (unit == Unit.WORKERS)
                             vs.Edit(unit.ToString(), Selected.NameInt[cbName.SelectedIndex], Selected.TypeInt[cbType.SelectedIndex],
-                             "\"" + tbName.Text + "\"", Selected.OwnerInt[cbOwner.SelectedIndex]);
+                             "\"" + tbName.Text + "\"", Selected.OwnerInt[cbOwner.SelectedIndex], "\"" + workerRFID.Text + "\"");
 
                         else if (unit == Unit.PLACES)
                             vs.Edit(unit.ToString(), Selected.NameInt[cbName.SelectedIndex], Selected.TypeInt[cbType.SelectedIndex],
-                            "\"" + tbName.Text + "\"", Selected.OwnerInt[cbOwner.SelectedIndex]);
+                            "\"" + tbName.Text + "\"", Selected.OwnerInt[cbOwner.SelectedIndex], "\"" + placeRFID.Text + "\"");
 
                         else vs.Edit(unit.ToString(), Selected.NameInt[cbName.SelectedIndex], Selected.TypeInt[cbType.SelectedIndex],
                             "\"" + tbName.Text + "\"", Selected.OwnerInt[cbOwner.SelectedIndex]);

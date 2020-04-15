@@ -28,66 +28,74 @@ namespace Alfa_Vega
         public void SetMenu()
         {
             vegas.GetMenu();
-            //int Total = GetLength();
-            SideMenu Factories = new SideMenu(panelBase, "-1", "-1", "-1", Selected.Units.FACTORIES, true);
-            SideMenu Departments;
-            SideMenu SubDepartments = new SideMenu();
-
-            SideMenu SubMenu;
-            SideMenu SubSubMenu;
-            for (int i = Selected.Menu[0].Count - 1; i >= 0; i--)
+            SideMenu Factories = new SideMenu(panelBase, Selected.Units.FACTORIES);
+            for (int i = Selected.Menu[0].Count - 1; i >= 0; i--)//Fabrikalar
             {
-                SideMenu SubFactories = new SideMenu(Factories.panel, Selected.Menu[0][i][0], Selected.Menu[0][i][1], Selected.Menu[0][i][2], Selected.Units.FACTORIES, false);
+                SideMenu SubFactories = new SideMenu(Factories.panel, Selected.Menu[0][i][0], Selected.Menu[0][i][1],
+                                                        Selected.Menu[0][i][2], Selected.Units.FACTORIES);
                 if (Selected.Menu[1].Count > 0)
                 {
-                    Departments = new SideMenu(SubFactories.panel, "-1", "-1", "-1", Selected.Units.DEPARTMENTS, true);
+                    SideMenu Departments = new SideMenu(SubFactories.panel, Selected.Units.DEPARTMENTS);
                     for (int j = Selected.Menu[1].Count - 1; j >= 0; j--)
                     {
+                        SideMenu SubDepartments = new SideMenu();
                         if (Selected.Menu[1][j][2] == SubFactories.ID)
-                            SubDepartments = new SideMenu(Departments.panel, Selected.Menu[1][j][0], Selected.Menu[1][j][1], Selected.Menu[1][j][2], Selected.Units.DEPARTMENTS, false);
+                        {
+                            SubDepartments = new SideMenu(Departments.panel, Selected.Menu[1][j][0], Selected.Menu[1][j][1], Selected.Menu[1][j][2], Selected.Units.DEPARTMENTS);
+                        }
                         if (SubDepartments.panel != null)
                         {
                             for (int k = 2; k < 5; k++)
                             {
                                 if (Selected.Menu[k].Count > 0)
                                 {
-                                    SubMenu = new SideMenu(SubDepartments.panel, "-1", "-1", "-1", (Selected.Units)k, true);
+                                    SideMenu SubMenu = new SideMenu(SubDepartments.panel, (Selected.Units)k);
                                     for (int l = Selected.Menu[k].Count - 1; l >= 0; l--)
                                     {
+                                        
                                         if (Selected.Menu[k][l][2] == SubDepartments.ID)
                                         {
-                                            SubSubMenu = new SideMenu(SubMenu.panel, Selected.Menu[k][j][0], Selected.Menu[k][j][1], Selected.Menu[k][j][2], (Selected.Units)k, false);
+                                            SideMenu SubSubMenu = new SideMenu(SubMenu.panel, Selected.Menu[k][j][0], Selected.Menu[k][j][1], Selected.Menu[k][j][2], (Selected.Units)k);
+                                            for (int m = Selected.Menu[5].Count - 1; m >= 0; m--)
+                                            {
+                                                if(Selected.Menu[5][m][2][0].ToString() == k.ToString())
+                                                {
+                                                    
+                                                    int temp = Convert.ToInt32(Selected.Menu[5][m][2].Remove(0,1));
+                                                    if(SubSubMenu.OwnerID == temp.ToString())
+                                                    {
+                                                        SideMenu vega = new SideMenu(SubMenu.panel, Selected.Menu[5][m][0], Selected.Menu[5][m][1], Selected.Menu[5][m][2], Selected.Units.VEGAS);
+                                                    }
+                                                }
+                                            }
                                         }
+                                        
+                                       
                                     }
-                                    /*
+                                    
                                     if (SubMenu.panel.Controls.Count == 0)
                                     {
                                         SubDepartments.panel.Controls.Remove(SubMenu.panel);
                                         SubDepartments.panel.Controls.Remove(SubMenu.button);
                                     }
-                                    */
+                                    
                                 }
                             }
                         }
-
                     }
-                    /*
-                    //Cleaner
+                    
+                    // Cleaner
                     if (Departments.panel.Controls.Count == 0)
                     {
                         Factories.panel.Controls.Remove(SubFactories.panel);
                     }
-                    */
                     
                 }
+                
             }
-            
         }
         
 
-        /// <summary>
-        /// Settings formunu açan buton.
-        /// </summary>
         private void btnSettings_Click(object sender, EventArgs e)
         {
             Settings _form = new Settings();

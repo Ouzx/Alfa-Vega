@@ -11,7 +11,7 @@ namespace Alfa_Vega
     public class SideMenu
     {
         #region ctors
-        public SideMenu(Panel _parent,string _id, string _name, string _ownerID, Selected.Units _unit, bool _isParent)
+        public SideMenu(Panel _parent,string _id, string _name, string _ownerID, Selected.Units _unit)
         {
             Parent = _parent;
 
@@ -19,8 +19,16 @@ namespace Alfa_Vega
             Name = _name;
             OwnerID = _ownerID;
             Unit = _unit;
-            isParent = _isParent;
+            isParent = false;
 
+            AddMenu();
+        }
+
+        public SideMenu(Panel _parent, Selected.Units _unit)
+        {
+            Parent = _parent;
+            Unit = _unit;
+            isParent = true;
             AddMenu();
         }
 
@@ -29,8 +37,6 @@ namespace Alfa_Vega
 
         }
         #endregion
-
-
 
         #region variables
         public string ID { get; set; }
@@ -44,7 +50,6 @@ namespace Alfa_Vega
         public Padding Padding { get; set; }
         public Panel Parent { get; set; }
         #endregion
-
 
         #region methods
         public Panel AddPanel()
@@ -179,6 +184,7 @@ namespace Alfa_Vega
                 AddParentMenu();
             }
         }
+
         Randomizer randomizer = new Randomizer();
         public void button_Click(object sender, EventArgs e)
         {
@@ -204,8 +210,6 @@ namespace Alfa_Vega
         {
             panel.Visible = true;
         }
-
-
         #endregion
     }
 }
