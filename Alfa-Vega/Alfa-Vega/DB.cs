@@ -26,10 +26,10 @@ namespace Alfa_Vega
         {
             string conn;
             MySqlConnectionStringBuilder build = new MySqlConnectionStringBuilder();
-            build.UserID = "endustri4_db";
-            build.Password = "proveg@4553";
-            build.Database = "endustri4_db";
-            build.Server = "endustri4.provega.com.tr";
+            build.UserID = "xxx";
+            build.Password = "xxx";
+            build.Database = "xxx";
+            build.Server = "xxx";
             conn = build.ToString();
             connection = new MySqlConnection(conn);
             connection.Open();
